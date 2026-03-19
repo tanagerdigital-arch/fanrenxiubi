@@ -108,30 +108,57 @@
             font-size: 1em;
             line-height: 1.8;
             color: #ccc;
-            white-space: pre-wrap;
-            word-break: break-word;
-            max-height: 600px;
-            overflow-y: auto;
         }
         
-        .card-content::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .card-content::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-        
-        .card-content::-webkit-scrollbar-thumb {
-            background: #00d4ff;
-            border-radius: 10px;
-        }
-        
-        .card-title {
-            font-size: 1.8em;
-            margin-bottom: 20px;
+        .card-content h2 {
+            font-size: 1.5em;
             color: #00d4ff;
+            margin: 25px 0 15px 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .card-content h3 {
+            font-size: 1.2em;
+            color: #00d4ff;
+            margin: 20px 0 10px 0;
+        }
+        
+        .card-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .card-content ul, .card-content ol {
+            margin: 15px 0 15px 20px;
+        }
+        
+        .card-content li {
+            margin: 8px 0;
+            list-style-position: outside;
+        }
+        
+        .card-content p {
+            margin: 15px 0;
+        }
+        
+        .card-content strong {
+            color: #00d4ff;
+        }
+        
+        .card-content code {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #00ffaa;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        
+        .stat-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid #00d4ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
         }
         
         .stats {
@@ -162,21 +189,6 @@
             margin-top: 5px;
         }
         
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .image-gallery img {
-            width: 100%;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            max-height: 250px;
-            object-fit: cover;
-        }
-        
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8em;
@@ -194,10 +206,6 @@
             .content-card {
                 padding: 20px;
                 min-height: auto;
-            }
-            
-            .card-content {
-                max-height: 400px;
             }
         }
     </style>
@@ -217,17 +225,14 @@
         </div>
         
         <div id="scripts" class="content-card">
-            <div class="card-title">📜 剧本库</div>
             <div class="card-content" id="scriptsContent">加载中...</div>
         </div>
         
         <div id="characters" class="content-card hidden">
-            <div class="card-title">👥 人物库</div>
             <div class="card-content" id="charactersContent">加载中...</div>
         </div>
         
         <div id="narrative" class="content-card hidden">
-            <div class="card-title">💭 创作思路</div>
             <div class="card-content" id="narrativeContent">加载中...</div>
         </div>
         
@@ -249,24 +254,45 @@
     
     <script>
         function switchTab(tabName) {
-            // 隐藏所有内容卡片
             document.querySelectorAll('.content-card').forEach(card => {
                 card.classList.add('hidden');
             });
             
-            // 移除所有tab按钮的active状态
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // 显示选中的内容卡片
             document.getElementById(tabName).classList.remove('hidden');
-            
-            // 添加active状态到点击的按钮
             event.target.classList.add('active');
         }
         
-        // 从本地文件加载内容
+        // 简单的Markdown转HTML
+        function markdownToHtml(text) {
+            let html = text;
+            
+            // 处理标题
+            html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
+            html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
+            
+            // 处理列表
+            html = html.replace(/^\- (.*?)$/gm, '<li>$1</li>');
+            html = html.replace(/(<li>.*?<\/li>)/s, '<ul>$1</ul>');
+            html = html.replace(/<\/ul>\n<ul>/g, '');
+            
+            // 处理粗体 **text**
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // 处理代码 `code`
+            html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+            
+            // 处理段落
+            html = html.replace(/\n\n/g, '</p><p>');
+            html = '<p>' + html + '</p>';
+            html = html.replace(/<p><\/p>/g, '');
+            
+            return html;
+        }
+        
         async function loadContent() {
             try {
                 const content = {
@@ -300,21 +326,21 @@
 
 ### 与黑镜的对标分析
 **黑镜：** 观众是被动消费者
+
 **《凡人修币录》：** 观众可以成为共创者
 - 共创者身份
 - 贡献者身份
 - 早期持有者身份
-- **观众与IP的关系从"消费"变成"共建"**
+- 观众与IP的关系从"消费"变成"共建"
 
 ### 核心竞争力
 为什么比黑镜更有潜力：观众的身份不是消费者，而是参与者和利益相关方`
                 };
                 
-                document.getElementById('scriptsContent').textContent = content.scripts;
-                document.getElementById('charactersContent').textContent = content.characters;
-                document.getElementById('narrativeContent').textContent = content.narrative;
+                document.getElementById('scriptsContent').innerHTML = markdownToHtml(content.scripts);
+                document.getElementById('charactersContent').innerHTML = markdownToHtml(content.characters);
+                document.getElementById('narrativeContent').innerHTML = markdownToHtml(content.narrative);
                 
-                // 更新时间戳
                 const now = new Date();
                 const timeStr = now.toLocaleString('zh-CN', { 
                     year: 'numeric',
@@ -331,7 +357,6 @@
             }
         }
         
-        // 页面加载时执行
         window.addEventListener('load', loadContent);
     </script>
 </body>
