@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《凡人修币录》创作档案库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        
+        .last-update {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: rgba(0, 212, 255, 0.8);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+        
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+        
+        .card-content {
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #ccc;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .card-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .card-content::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        
+        .card-content::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 10px;
+        }
+        
+        .stats {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .stats-item {
+            display: inline-block;
+            margin: 10px 20px;
+        }
+        
+        .stats-number {
+            font-size: 2em;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        
+        .stats-label {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .image-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            max-height: 250px;
+            object-fit: cover;
+        }
+        
+        .empty-state {
+            text-align: center;
+            color: #666;
+            padding: 40px 20px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-item {
+                display: block;
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📺 《凡人修币录》创作档案库</h1>
+            <p class="subtitle">Datsby 的短剧创作空间 | 加密文化 × 人性叙事</p>
+            <p class="last-update" id="lastUpdate">最后更新: 加载中...</p>
+        </header>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📜</div>
+                <h2>剧本库</h2>
+                <div class="card-content" id="scripts">加载中...</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h2>人物库</h2>
+                <div class="card-content" id="characters">加载中...</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">💭</div>
+                <h2>创作思路</h2>
+                <div class="card-content" id="narrative">加载中...</div>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stats-item">
+                <div class="stats-number" id="projectCount">1</div>
+                <div class="stats-label">进行中的项目</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-number" id="charCount">0</div>
+                <div class="stats-label">主要人物</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-number" id="seasonCount">1</div>
+                <div class="stats-label">规划季数</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 从本地文件加载内容
+        async function loadContent() {
+            try {
+                // 这是一个静态版本，实际内容通过手动更新或自动化脚本更新
+                const content = {
+                    scripts: `## 《凡人修币录》S2
+- **创建日期:** 2026-03-19
+- **状态:** 记录中
+- **世界观梗概:** 加密文化与人性的碰撞
+- **核心冲突:** 情绪收割与Builder精神的对抗
+- **时长/集数:** 待定
+- **其他备注:** 采用黑镜模式，每季独立故事`,
+                    
+                    characters: `## 《凡人修币录》S2
+
+### 主要人物
+- 待补充
+
+### 人物关系图
+- 待补充`,
+                    
+                    narrative: `## 《凡人修币录》S2
+
+### 核心框架
+**统一世界观主题：** 加密文化与人性
+- S1：FUD与信仰
+- S2：情绪收割与Builder精神
+- S3：L1大Boss的真正面目
+- Sn：每一季对应当下最真实的加密议题
+
+### 创作思路
+- 采用黑镜模式：统一世界观 + 每季独立故事 + 无限延伸潜力
+
+### 与黑镜的对标分析
+**黑镜：** 观众是被动消费者
+**《凡人修币录》：** 观众可以成为共创者
+- 共创者身份
+- 贡献者身份
+- 早期持有者身份
+- **观众与IP的关系从"消费"变成"共建"**
+
+### 核心竞争力
+为什么比黑镜更有潜力：观众的身份不是消费者，而是参与者和利益相关方`
+                };
+                
+                document.getElementById('scripts').textContent = content.scripts;
+                document.getElementById('characters').textContent = content.characters;
+                document.getElementById('narrative').textContent = content.narrative;
+                
+                // 更新时间戳
+                const now = new Date();
+                const timeStr = now.toLocaleString('zh-CN', { 
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                document.getElementById('lastUpdate').textContent = `最后更新: ${timeStr}`;
+                
+                // 统计数据
+                document.getElementById('charCount').textContent = '0';
+                document.getElementById('seasonCount').textContent = '3+';
+                
+            } catch (error) {
+                console.error('加载失败:', error);
+                document.getElementById('scripts').textContent = '加载失败';
+            }
+        }
+        
+        // 页面加载时执行
+        window.addEventListener('load', loadContent);
+        
+        // 每30秒自动刷新一次（可选）
+        // setInterval(loadContent, 30000);
+    </script>
+</body>
+</html>
