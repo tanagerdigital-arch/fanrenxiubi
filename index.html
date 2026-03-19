@@ -20,7 +20,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -51,46 +51,66 @@
             color: #666;
         }
         
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
         }
         
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 10px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
+        .tab-button {
+            background: none;
+            border: none;
+            font-size: 1.2em;
+            padding: 15px 25px;
+            cursor: pointer;
+            color: #888;
+            border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         
-        .card:hover {
-            border-color: rgba(0, 212, 255, 0.8);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-        }
-        
-        .card-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-        
-        .card h2 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
+        .tab-button:hover {
             color: #00d4ff;
         }
         
+        .tab-button.active {
+            color: #00d4ff;
+            border-bottom-color: #00d4ff;
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            min-height: 400px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .content-card.hidden {
+            display: none;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .card-content {
-            font-size: 0.95em;
+            font-size: 1em;
             line-height: 1.8;
             color: #ccc;
             white-space: pre-wrap;
             word-break: break-word;
-            max-height: 400px;
+            max-height: 600px;
             overflow-y: auto;
         }
         
@@ -108,18 +128,26 @@
             border-radius: 10px;
         }
         
+        .card-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+        
         .stats {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(0, 212, 255, 0.3);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
         }
         
         .stats-item {
-            display: inline-block;
-            margin: 10px 20px;
+            padding: 15px;
         }
         
         .stats-number {
@@ -138,7 +166,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
         
         .image-gallery img {
@@ -149,24 +177,27 @@
             object-fit: cover;
         }
         
-        .empty-state {
-            text-align: center;
-            color: #666;
-            padding: 40px 20px;
-        }
-        
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8em;
             }
             
-            .grid {
-                grid-template-columns: 1fr;
+            .tabs {
+                flex-wrap: wrap;
             }
             
-            .stats-item {
-                display: block;
-                margin: 15px 0;
+            .tab-button {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+            
+            .content-card {
+                padding: 20px;
+                min-height: auto;
+            }
+            
+            .card-content {
+                max-height: 400px;
             }
         }
     </style>
@@ -179,24 +210,25 @@
             <p class="last-update" id="lastUpdate">最后更新: 加载中...</p>
         </header>
         
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">📜</div>
-                <h2>剧本库</h2>
-                <div class="card-content" id="scripts">加载中...</div>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">👥</div>
-                <h2>人物库</h2>
-                <div class="card-content" id="characters">加载中...</div>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">💭</div>
-                <h2>创作思路</h2>
-                <div class="card-content" id="narrative">加载中...</div>
-            </div>
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab('scripts')">📜 剧本库</button>
+            <button class="tab-button" onclick="switchTab('characters')">👥 人物库</button>
+            <button class="tab-button" onclick="switchTab('narrative')">💭 创作思路</button>
+        </div>
+        
+        <div id="scripts" class="content-card">
+            <div class="card-title">📜 剧本库</div>
+            <div class="card-content" id="scriptsContent">加载中...</div>
+        </div>
+        
+        <div id="characters" class="content-card hidden">
+            <div class="card-title">👥 人物库</div>
+            <div class="card-content" id="charactersContent">加载中...</div>
+        </div>
+        
+        <div id="narrative" class="content-card hidden">
+            <div class="card-title">💭 创作思路</div>
+            <div class="card-content" id="narrativeContent">加载中...</div>
         </div>
         
         <div class="stats">
@@ -209,17 +241,34 @@
                 <div class="stats-label">主要人物</div>
             </div>
             <div class="stats-item">
-                <div class="stats-number" id="seasonCount">1</div>
+                <div class="stats-number" id="seasonCount">3+</div>
                 <div class="stats-label">规划季数</div>
             </div>
         </div>
     </div>
     
     <script>
+        function switchTab(tabName) {
+            // 隐藏所有内容卡片
+            document.querySelectorAll('.content-card').forEach(card => {
+                card.classList.add('hidden');
+            });
+            
+            // 移除所有tab按钮的active状态
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 显示选中的内容卡片
+            document.getElementById(tabName).classList.remove('hidden');
+            
+            // 添加active状态到点击的按钮
+            event.target.classList.add('active');
+        }
+        
         // 从本地文件加载内容
         async function loadContent() {
             try {
-                // 这是一个静态版本，实际内容通过手动更新或自动化脚本更新
                 const content = {
                     scripts: `## 《凡人修币录》S2
 - **创建日期:** 2026-03-19
@@ -261,9 +310,9 @@
 为什么比黑镜更有潜力：观众的身份不是消费者，而是参与者和利益相关方`
                 };
                 
-                document.getElementById('scripts').textContent = content.scripts;
-                document.getElementById('characters').textContent = content.characters;
-                document.getElementById('narrative').textContent = content.narrative;
+                document.getElementById('scriptsContent').textContent = content.scripts;
+                document.getElementById('charactersContent').textContent = content.characters;
+                document.getElementById('narrativeContent').textContent = content.narrative;
                 
                 // 更新时间戳
                 const now = new Date();
@@ -277,21 +326,13 @@
                 });
                 document.getElementById('lastUpdate').textContent = `最后更新: ${timeStr}`;
                 
-                // 统计数据
-                document.getElementById('charCount').textContent = '0';
-                document.getElementById('seasonCount').textContent = '3+';
-                
             } catch (error) {
                 console.error('加载失败:', error);
-                document.getElementById('scripts').textContent = '加载失败';
             }
         }
         
         // 页面加载时执行
         window.addEventListener('load', loadContent);
-        
-        // 每30秒自动刷新一次（可选）
-        // setInterval(loadContent, 30000);
     </script>
 </body>
 </html>
