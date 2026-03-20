@@ -147,12 +147,48 @@
         }
         
         .card-content code {
-            background: #e8f5e9;
+            background: #f0ebe3;
             padding: 2px 6px;
             border-radius: 4px;
             color: #4a7c59;
             font-family: 'Monaco', 'Menlo', monospace;
             font-size: 0.95em;
+        }
+        
+        /* 可折叠人物样式 */
+        details {
+            margin: 20px 0;
+            border: 1px solid #d4e5d4;
+            border-radius: 6px;
+            padding: 0;
+        }
+        
+        details summary {
+            padding: 15px;
+            background: #f0f7f0;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2c2c2c;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+        
+        details summary:hover {
+            background: #e8f5e8;
+        }
+        
+        details[open] summary {
+            border-bottom: 1px solid #d4e5d4;
+        }
+        
+        details .character-content {
+            padding: 15px;
+            background: #f8faf8;
+        }
+        
+        details .character-content h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
         }
         
         .stats {
@@ -268,29 +304,57 @@
     
     <script>
         function switchTab(tabName) {
-            // 隐藏所有页面
             document.querySelectorAll('.page-container').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // 移除所有tab按钮的active状态
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // 显示选中的页面
             document.getElementById(tabName).classList.add('active');
-            
-            // 添加active状态到点击的按钮
             document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-            
-            // 滚动到顶部
             window.scrollTo(0, 0);
         }
         
-        // 简单的Markdown转HTML
-        function markdownToHtml(text) {
+        function markdownToHtml(text, isCharacters = false) {
             let html = text;
+            
+            if (isCharacters) {
+                // 特殊处理人物库：将## 标题转成可折叠的details元素
+                const lines = html.split('\n');
+                let result = [];
+                let currentCharacter = null;
+                let characterContent = [];
+                
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i];
+                    
+                    // 检测## 开头（人物名字）
+                    if (line.match(/^## [^#]/)) {
+                        // 如果之前有人物内容，先保存
+                        if (currentCharacter) {
+                            result.push(createDetailsElement(currentCharacter, characterContent.join('\n')));
+                        }
+                        // 开始新的人物
+                        currentCharacter = line.replace(/^## /, '').trim();
+                        characterContent = [];
+                    } else if (currentCharacter) {
+                        // 累积当前人物的内容
+                        characterContent.push(line);
+                    } else {
+                        // 在第一个人物之前的内容
+                        result.push(line);
+                    }
+                }
+                
+                // 保存最后一个人物
+                if (currentCharacter) {
+                    result.push(createDetailsElement(currentCharacter, characterContent.join('\n')));
+                }
+                
+                html = result.join('\n');
+            }
             
             // 处理标题
             html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
@@ -308,6 +372,12 @@
             html = html.replace(/`(.*?)`/g, '<code>$1</code>');
             
             return html;
+        }
+        
+        function createDetailsElement(characterName, content) {
+            // 转换人物内容的markdown
+            let contentHtml = markdownToHtml(content, false);
+            return `<details><summary>${characterName}</summary><div class="character-content">${contentHtml}</div></details>`;
         }
         
         async function loadContent() {
@@ -510,7 +580,7 @@
                 };
                 
                 document.getElementById('scriptsContent').innerHTML = markdownToHtml(content.scripts);
-                document.getElementById('charactersContent').innerHTML = markdownToHtml(content.characters);
+                document.getElementById('charactersContent').innerHTML = markdownToHtml(content.characters, true);
                 document.getElementById('narrativeContent').innerHTML = markdownToHtml(content.narrative);
                 document.getElementById('settingsContent').innerHTML = markdownToHtml(content.settings);
                 
