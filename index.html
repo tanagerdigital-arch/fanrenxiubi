@@ -216,6 +216,7 @@
             <button class="tab-button active" data-tab="scripts" onclick="switchTab('scripts')">📜 剧本库</button>
             <button class="tab-button" data-tab="characters" onclick="switchTab('characters')">👥 人物库</button>
             <button class="tab-button" data-tab="narrative" onclick="switchTab('narrative')">💭 创作思路</button>
+            <button class="tab-button" data-tab="settings" onclick="switchTab('settings')">📋 设定</button>
         </div>
         
         <div id="scripts" class="page-container active">
@@ -255,6 +256,12 @@
                     <div class="stats-number">3+</div>
                     <div class="stats-label">规划季数</div>
                 </div>
+            </div>
+        </div>
+        
+        <div id="settings" class="page-container">
+            <div class="content-card">
+                <div class="card-content" id="settingsContent">加载中...</div>
             </div>
         </div>
     </div>
@@ -354,10 +361,7 @@
 **第六集**
 - 故事框架：待补充
 - 核心冲突：待补充
-- 转折点：待补充
-
-### 3. 设定
-**待补充**`,
+- 转折点：待补充`,
                     
                     characters: `## 《凡人修币录》S2
 
@@ -365,6 +369,11 @@
 - 待补充
 
 ### 人物关系图
+- 待补充`,
+                    
+                    settings: `## 《凡人修币录》S2
+
+### 主要设定
 - 待补充`,
                     
                     narrative: `## 《凡人修币录》S2 - 情绪之证明
@@ -439,6 +448,7 @@
                 document.getElementById('scriptsContent').innerHTML = markdownToHtml(content.scripts);
                 document.getElementById('charactersContent').innerHTML = markdownToHtml(content.characters);
                 document.getElementById('narrativeContent').innerHTML = markdownToHtml(content.narrative);
+                document.getElementById('settingsContent').innerHTML = markdownToHtml(content.settings);
                 
                 const now = new Date();
                 const timeStr = now.toLocaleString('zh-CN', { 
