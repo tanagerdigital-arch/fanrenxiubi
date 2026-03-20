@@ -251,6 +251,7 @@
         <div class="tabs">
             <button class="tab-button active" data-tab="scripts" onclick="switchTab('scripts')">📜 剧本库</button>
             <button class="tab-button" data-tab="characters" onclick="switchTab('characters')">👥 人物库</button>
+            <button class="tab-button" data-tab="relations" onclick="switchTab('relations')">🔗 人物关系</button>
             <button class="tab-button" data-tab="narrative" onclick="switchTab('narrative')">💭 创作思路</button>
             <button class="tab-button" data-tab="settings" onclick="switchTab('settings')">📋 设定</button>
         </div>
@@ -280,6 +281,12 @@
                     <div class="stats-number">3</div>
                     <div class="stats-label">主要人物</div>
                 </div>
+            </div>
+        </div>
+        
+        <div id="relations" class="page-container">
+            <div class="content-card">
+                <div class="card-content" id="relationsContent">加载中...</div>
             </div>
         </div>
         
@@ -432,6 +439,10 @@
 - 故事框架：待补充
 - 核心冲突：待补充
 - 转折点：待补充`,
+                    
+                    relations: `## 《凡人修币录》S2 - 人物关系网络
+
+### 待补充`,
                     
                     characters: `## 《凡人修币录》S2
 
@@ -627,6 +638,7 @@
                 
                 document.getElementById('scriptsContent').innerHTML = markdownToHtml(content.scripts);
                 document.getElementById('charactersContent').innerHTML = markdownToHtml(content.characters, true);
+                document.getElementById('relationsContent').innerHTML = markdownToHtml(content.relations);
                 document.getElementById('narrativeContent').innerHTML = markdownToHtml(content.narrative);
                 document.getElementById('settingsContent').innerHTML = markdownToHtml(content.settings);
                 
