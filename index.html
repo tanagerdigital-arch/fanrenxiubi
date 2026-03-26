@@ -254,6 +254,7 @@
             <button class="tab-button" data-tab="relations" onclick="switchTab('relations')">🔗 人物关系</button>
             <button class="tab-button" data-tab="narrative" onclick="switchTab('narrative')">💭 创作思路</button>
             <button class="tab-button" data-tab="settings" onclick="switchTab('settings')">📋 设定</button>
+            <button class="tab-button" data-tab="designcontest" onclick="switchTab('designcontest')">🎨 设计大赛</button>
         </div>
         
         <div id="scripts" class="page-container active">
@@ -305,6 +306,12 @@
         <div id="settings" class="page-container">
             <div class="content-card">
                 <div class="card-content" id="settingsContent">加载中...</div>
+            </div>
+        </div>
+        
+        <div id="designcontest" class="page-container">
+            <div class="content-card">
+                <div class="card-content" id="designcontestContent">加载中...</div>
             </div>
         </div>
     </div>
@@ -545,6 +552,10 @@
 ### 故事线
 - 最终用最纯粹的非理性点燃了集体觉醒`,
                     
+                    designcontest: `## 《凡人修币录》S2 - 设计大赛
+
+### 待补充`,
+                    
                     settings: `## 《凡人修币录》S2
 
 ### 永信城的真实结构
@@ -670,6 +681,7 @@
                 document.getElementById('relationsContent').innerHTML = markdownToHtml(content.relations);
                 document.getElementById('narrativeContent').innerHTML = markdownToHtml(content.narrative);
                 document.getElementById('settingsContent').innerHTML = markdownToHtml(content.settings);
+                document.getElementById('designcontestContent').innerHTML = markdownToHtml(content.designcontest);
                 
                 const now = new Date();
                 const timeStr = now.toLocaleString('zh-CN', { 
