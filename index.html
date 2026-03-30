@@ -28,10 +28,10 @@
  --priority-2: #F0A500;
  --priority-3: #1A8FAA;
  }
-
+ 
  * { margin: 0; padding: 0; box-sizing: border-box; }
  html { scroll-behavior: smooth; }
-
+ 
  body {
  background: var(--dark);
  color: var(--text);
@@ -42,14 +42,14 @@
  margin: 0 auto;
  padding: 48px 32px;
  }
-
+ 
  /* HEADER */
  .doc-header {
  border-bottom: 1px solid var(--border-bright);
  padding-bottom: 32px;
  margin-bottom: 48px;
  }
-
+ 
  .doc-label {
  font-family: 'Share Tech Mono', monospace;
  font-size: 10px;
@@ -57,7 +57,7 @@
  letter-spacing: 0.2em;
  margin-bottom: 12px;
  }
-
+ 
  .doc-title {
  font-family: 'Noto Serif SC', serif;
  font-size: 32px;
@@ -65,19 +65,19 @@
  color: var(--text-bright);
  margin-bottom: 8px;
  }
-
+ 
  .doc-subtitle {
  font-size: 14px;
  color: var(--text-dim);
  margin-bottom: 24px;
  }
-
+ 
  .doc-meta {
  display: flex;
  gap: 24px;
  flex-wrap: wrap;
  }
-
+ 
  .doc-meta-item {
  display: flex;
  align-items: center;
@@ -85,10 +85,10 @@
  font-family: 'Share Tech Mono', monospace;
  font-size: 11px;
  }
-
+ 
  .doc-meta-label { color: var(--gold-dim); }
  .doc-meta-value { color: var(--gold); }
-
+ 
  /* LEGEND */
  .legend {
  display: flex;
@@ -100,21 +100,21 @@
  border-radius: 8px;
  margin-bottom: 40px;
  }
-
+ 
  .legend-item {
  display: flex;
  align-items: center;
  gap: 8px;
  font-size: 12px;
  }
-
+ 
  .legend-dot {
  width: 10px;
  height: 10px;
  border-radius: 50%;
  flex-shrink: 0;
  }
-
+ 
  /* SECTION */
  .section-title {
  font-family: 'Share Tech Mono', monospace;
@@ -127,9 +127,9 @@
  margin-bottom: 20px;
  margin-top: 48px;
  }
-
+ 
  .section-title:first-of-type { margin-top: 0; }
-
+ 
  /* RENDER CARD */
  .render-card {
  background: var(--dark-2);
@@ -139,9 +139,9 @@
  overflow: hidden;
  transition: border-color 0.2s;
  }
-
+ 
  .render-card:hover { border-color: var(--border-bright); }
-
+ 
  .render-card-header {
  display: grid;
  grid-template-columns: 80px 1fr auto;
@@ -150,33 +150,33 @@
  padding: 16px 20px;
  cursor: pointer;
  }
-
+ 
  .render-id {
  font-family: 'Share Tech Mono', monospace;
  font-size: 11px;
  color: var(--gold);
  white-space: nowrap;
  }
-
+ 
  .render-name {
  font-size: 14px;
  color: var(--text-bright);
  font-weight: 500;
  }
-
+ 
  .render-scene {
  font-size: 11px;
  color: var(--text-dim);
  margin-top: 2px;
  }
-
+ 
  .render-badges {
  display: flex;
  gap: 6px;
  align-items: center;
  flex-shrink: 0;
  }
-
+ 
  .badge {
  font-family: 'Share Tech Mono', monospace;
  font-size: 9px;
@@ -184,7 +184,7 @@
  border-radius: 4px;
  white-space: nowrap;
  }
-
+ 
  .badge-p1 { background: rgba(233,69,96,0.15); color: var(--priority-1); border: 1px solid rgba(233,69,96,0.3); }
  .badge-p2 { background: rgba(240,165,0,0.15); color: var(--priority-2); border: 1px solid rgba(240,165,0,0.3); }
  .badge-p3 { background: rgba(26,143,170,0.15); color: var(--priority-3); border: 1px solid rgba(26,143,170,0.3); }
@@ -192,32 +192,32 @@
  .badge-char { background: rgba(212,160,23,0.1); color: var(--gold); border: 1px solid var(--border); }
  .badge-scene { background: rgba(14,77,92,0.3); color: var(--teal-bright); border: 1px solid rgba(26,143,170,0.3); }
  .badge-fx { background: rgba(139,69,20,0.2); color: #E8835A; border: 1px solid rgba(232,131,90,0.3); }
-
+ 
  .render-body {
  padding: 0 20px 20px;
  border-top: 1px solid rgba(255,255,255,0.04);
  }
-
+ 
  .render-desc {
  font-size: 13px;
  color: var(--text);
  line-height: 1.8;
  padding: 16px 0 12px;
  }
-
+ 
  .render-details {
  display: grid;
  grid-template-columns: 1fr 1fr;
  gap: 12px;
  margin-top: 12px;
  }
-
+ 
  .render-detail-item {
  background: rgba(0,0,0,0.2);
  border-radius: 6px;
  padding: 12px 14px;
  }
-
+ 
  .render-detail-label {
  font-family: 'Share Tech Mono', monospace;
  font-size: 9px;
@@ -225,13 +225,13 @@
  letter-spacing: 0.1em;
  margin-bottom: 6px;
  }
-
+ 
  .render-detail-value {
  font-size: 12px;
  color: var(--text);
  line-height: 1.6;
  }
-
+ 
  .render-img-placeholder {
  background: var(--dark-3);
  border: 1px dashed var(--border);
@@ -240,13 +240,13 @@
  text-align: center;
  margin-top: 12px;
  }
-
+ 
  .render-img-placeholder-text {
  font-family: 'Share Tech Mono', monospace;
  font-size: 10px;
  color: var(--text-dim);
  }
-
+ 
  .render-img-done {
  border-radius: 6px;
  overflow: hidden;
@@ -254,14 +254,14 @@
  border: 1px solid var(--border);
  cursor: pointer;
  }
-
+ 
  .render-img-done img {
  width: 100%;
  display: block;
  max-height: 200px;
  object-fit: cover;
  }
-
+ 
  /* STATS */
  .stats-grid {
  display: grid;
@@ -269,7 +269,7 @@
  gap: 12px;
  margin-bottom: 40px;
  }
-
+ 
  .stat-card {
  background: var(--dark-2);
  border: 1px solid var(--border);
@@ -277,20 +277,20 @@
  padding: 16px 20px;
  text-align: center;
  }
-
+ 
  .stat-num {
  font-family: 'Share Tech Mono', monospace;
  font-size: 28px;
  color: var(--gold);
  display: block;
  }
-
+ 
  .stat-label {
  font-size: 11px;
  color: var(--text-dim);
  margin-top: 4px;
  }
-
+ 
  /* IMAGE LIGHTBOX */
  .lightbox {
  display: none;
@@ -302,11 +302,11 @@
  justify-content: center;
  cursor: zoom-out;
  }
-
+ 
  .lightbox.open { display: flex; }
  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 4px; }
  .lightbox-close { position: absolute; top: 24px; right: 24px; color: var(--text-dim); font-size: 20px; cursor: pointer; }
-
+ 
  /* PROGRESS BAR */
  .progress-bar {
  background: var(--dark-3);
@@ -315,14 +315,14 @@
  margin-top: 8px;
  overflow: hidden;
  }
-
+ 
  .progress-fill {
  height: 100%;
  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
  border-radius: 4px;
  transition: width 0.3s;
  }
-
+ 
  /* NOTES */
  .note {
  background: rgba(212,160,23,0.05);
@@ -334,7 +334,8 @@
  margin-top: 12px;
  line-height: 1.7;
  }
-
+ 
+ 
  /* TABS */
  .tab-nav {
  display: flex;
@@ -343,7 +344,7 @@
  margin-bottom: 40px;
  margin-top: -20px;
  }
-
+ 
  .tab-btn {
  font-family: 'Share Tech Mono', monospace;
  font-size: 11px;
@@ -357,36 +358,36 @@
  margin-bottom: -1px;
  transition: all 0.2s;
  }
-
+ 
  .tab-btn:hover { color: var(--text); }
-
+ 
  .tab-btn.active {
  color: var(--gold);
  border-bottom-color: var(--gold);
  }
-
+ 
  .tab-page { display: none; }
  .tab-page.active { display: block; }
-
+ 
  /* SCREENPLAY */
  .script-wrap {
  max-width: 680px;
  margin: 0 auto;
  }
-
+ 
  .script-scene {
  margin-bottom: 48px;
  border-left: 2px solid var(--border);
  padding-left: 24px;
  }
-
+ 
  .script-scene-header {
  display: flex;
  align-items: center;
  gap: 12px;
  margin-bottom: 20px;
  }
-
+ 
  .script-scene-num {
  font-family: 'Share Tech Mono', monospace;
  font-size: 11px;
@@ -397,14 +398,14 @@
  border-radius: 4px;
  flex-shrink: 0;
  }
-
+ 
  .script-scene-title {
  font-family: 'Noto Serif SC', serif;
  font-size: 16px;
  font-weight: 600;
  color: var(--text-bright);
  }
-
+ 
  .script-scene-meta {
  font-family: 'Share Tech Mono', monospace;
  font-size: 10px;
@@ -412,7 +413,7 @@
  margin-left: auto;
  white-space: nowrap;
  }
-
+ 
  .script-location {
  font-family: 'Share Tech Mono', monospace;
  font-size: 10px;
@@ -425,52 +426,52 @@
  border-radius: 4px;
  display: inline-block;
  }
-
+ 
  .script-action {
  font-size: 13px;
  color: var(--text);
  line-height: 2;
  margin-bottom: 16px;
  }
-
+ 
  .script-action em {
  color: var(--text-dim);
  font-style: italic;
  }
-
+ 
  .script-dialogue {
  margin: 20px 0;
  padding: 0 32px;
  }
-
+ 
  .script-char {
  font-family: 'Share Tech Mono', monospace;
  font-size: 10px;
  letter-spacing: 0.15em;
  margin-bottom: 4px;
  }
-
+ 
  .script-char.zhao { color: var(--gold); }
  .script-char.victor { color: var(--red); }
  .script-char.xiaozhu { color: #E879A0; }
  .script-char.robot { color: var(--text-dim); }
  .script-char.npc { color: var(--teal-bright); }
  .script-char.system { color: var(--teal-bright); }
-
+ 
  .script-paren {
  font-size: 11px;
  color: var(--text-dim);
  font-style: italic;
  margin-bottom: 4px;
  }
-
+ 
  .script-line {
  font-size: 14px;
  color: var(--text-bright);
  line-height: 1.8;
  margin-bottom: 12px;
  }
-
+ 
  .script-direction {
  font-family: 'Share Tech Mono', monospace;
  font-size: 10px;
@@ -482,13 +483,13 @@
  margin: 16px 0;
  line-height: 1.6;
  }
-
+ 
  .script-divider {
  border: none;
  border-top: 1px solid var(--border);
  margin: 32px 0;
  }
-
+ 
  .script-end {
  text-align: center;
  font-family: 'Share Tech Mono', monospace;
@@ -500,7 +501,7 @@
  margin-top: 48px;
  letter-spacing: 0.2em;
  }
-
+ 
  .script-flashback {
  background: rgba(212,160,23,0.05);
  border: 1px solid rgba(212,160,23,0.2);
@@ -508,7 +509,7 @@
  padding: 16px 20px;
  margin: 16px 0;
  }
-
+ 
  .script-flashback-label {
  font-family: 'Share Tech Mono', monospace;
  font-size: 9px;
@@ -516,7 +517,7 @@
  letter-spacing: 0.2em;
  margin-bottom: 8px;
  }
-
+ 
  .script-countdown {
  font-family: 'Share Tech Mono', monospace;
  font-size: 28px;
@@ -526,12 +527,12 @@
  letter-spacing: 0.1em;
  animation: pulse 1s infinite;
  }
-
+ 
  @keyframes pulse {
  0%, 100% { opacity: 1; }
  50% { opacity: 0.6; }
  }
-
+ 
  @media (max-width: 600px) {
  body { padding: 24px 16px; }
  .render-card-header { grid-template-columns: 60px 1fr; }
@@ -542,12 +543,12 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
  <div class="lightbox-close">✕</div>
  <img id="lightbox-img" src="" alt="">
 </div>
-
+ 
 <!-- HEADER -->
 <div class="doc-header">
  <div class="doc-label">// 内部制作文件 · 请勿外传</div>
@@ -576,13 +577,14 @@
  </div>
  </div>
 </div>
-
+ 
+ 
 <!-- TAB NAVIGATION -->
 <div class="tab-nav">
  <button class="tab-btn active" onclick="switchTab('renders')">📋 渲染需求清单</button>
  <button class="tab-btn" onclick="switchTab('screenplay')">🎬 完整剧本</button>
 </div>
-
+ 
 <div class="tab-page active" id="tab-renders">
 <!-- STATS -->
 <div class="stats-grid">
@@ -607,7 +609,7 @@
  <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
  </div>
 </div>
-
+ 
 <!-- LEGEND -->
 <div class="legend">
  <div class="legend-item"><div class="legend-dot" style="background:var(--priority-1)"></div><span>优先级1·第一批渲染</span></div>
@@ -618,8 +620,831 @@
  <div class="legend-item"><span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold)">CHAR</span><span style="margin-left:4px">需要角色定妆照</span></div>
  <div class="legend-item"><span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#E8835A">FX</span><span style="margin-left:4px">后期特效</span></div>
 </div>
+ 
+<!-- A类 -->
+<div class="section-title">A类 · 纯场景渲染（无需角色定妆照）</div>
+ 
+<!-- A-01 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-01</div>
+ <div>
+ <div class="render-name">永信城L2核心街区航拍</div>
+ <div class="render-scene">场景A · 建立世界 · 第1镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">清晨，L2核心金融区。金色霓虹还未完全熄灭，K线图招牌在楼宇间闪烁。人流开始涌现。和任何一座现实城市没有区别——这是最重要的视觉原则。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">视角</div>
+ <div class="render-detail-value">航拍俯瞰，缓慢扫过</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">金色霓虹为主，冷蓝天空，头顶隐约算法网格（极淡）</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">关键元素</div>
+ <div class="render-detail-value">K线山远景·K线图招牌·正常城市人流</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">风格参考</div>
+ <div class="render-detail-value">写实电影风·银翼杀手2049质感</div>
+ </div>
+ </div>
+ </div>
+</div>
 
-[内容因篇幅限制，已截断核心部分]
+<!-- A-02 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-02</div>
+ <div>
+ <div class="render-name">天空中的巨型钟摆（平时状态）</div>
+ <div class="render-scene">场景A · 建立世界 · 第2镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">永信城天空中悬挂的巨型钟摆。来回摆动，规律，缓慢。晨光从钟摆后透过来。街道上的人没有人抬头看它——它一直都在，像背景一样存在。这是它最恐怖的地方。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">视角</div>
+ <div class="render-detail-value">仰拍·钟摆占画面上方2/3</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">清晨暖光·钟摆金属质感·冷蓝天空</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">关键细节</div>
+ <div class="render-detail-value">钟摆正在摆动（有运动模糊）·底部无红色针（平时不可见）</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">重要说明</div>
+ <div class="render-detail-value">钟摆是城市级别的尺度·人类在画面中极小</div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- A-03 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-03</div>
+ <div>
+ <div class="render-name">域峰广场外观全景</div>
+ <div class="render-scene">场景A · 建立世界 · 第3镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-done">已有概念图</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">域峰广场全景。灰鲸金融大厦居中矗立，深灰色钛合金幕墙，在清晨阳光中发着冷光。门口标志低调反光：「Grey Whale Capital · 灰鲸金融」。广场上有交易终端和人流。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">参考图</div>
+ <div class="render-detail-value">导演已提供域峰广场概念图·参考图上传至相册</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">关键元素</div>
+ <div class="render-detail-value">灰鲸金融标志·钟摆在远处天空可见·广场交易终端</div>
+ </div>
+ </div>
+ <div class="render-img-done" onclick="document.getElementById('lightbox').classList.add('open');document.getElementById('lightbox-img').src='https://i.ibb.co/1Yz4yNR6/domain-peak.png'">
+ <img src="https://i.ibb.co/1Yz4yNR6/domain-peak.png" alt="域峰广场概念图">
+ </div>
+ </div>
+</div>
+
+<!-- A-04 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-04</div>
+ <div>
+ <div class="render-name">Meme街区全景</div>
+ <div class="render-scene">场景A · 建立世界 · 第4镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">永信城草根区域。彩色霓虹，乱糟糟的活力。街边摊位，直播喊单，P图博主。城市大屏上滚动着招工广告——这是L3的入口广告，但没有人在意。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">彩色霓虹·混乱活力·和L2金融区形成反差</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">城市大屏内容</div>
+ <div class="render-detail-value">「你的情绪是这个时代最稀缺的资产」·情绪创作园区招募广告·扫码二维码</div>
+ </div>
+ </div>
+ <div class="note">⚠️ 大屏上的文字内容由后期叠加，渲染时大屏留白或模糊处理</div>
+ </div>
+</div>
+
+<!-- A-05 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-05</div>
+ <div>
+ <div class="render-name">阿明妈妈早餐店外观</div>
+ <div class="render-scene">场景A · 建立世界 · 第5镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">清晨，普通街边早餐店。烟气腾腾，温暖的黄色灯光。和整个L2的金融感完全不同——这是永信城里最普通的地方，也是整个故事最重要的情感锚点之一。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">暖黄色灯光·烟气·和L2冷色调形成反差</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">关键细节</div>
+ <div class="render-detail-value">普通街边档口·简单桌椅·凌晨就开始营业的感觉</div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- A-06 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-06</div>
+ <div>
+ <div class="render-name">早餐店内部·招工广告小电视</div>
+ <div class="render-scene">场景A · 建立世界 · 第6镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-char">CHAR</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">早餐店内部。妈妈在灶台前忙碌（需要阿明妈妈人物设计）。角落小电视播着招工广告。桌上有印着二维码的小卡片「扫码了解更多」。顾客坐在简单的桌椅上。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">需要人物设计</div>
+ <div class="render-detail-value">阿明妈妈·中年女性·凌晨四点就起来揉面的那种人</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">小电视内容</div>
+ <div class="render-detail-value">后期叠加·留白处理</div>
+ </div>
+ </div>
+ <div class="note">⚠️ 阿明妈妈人物设计待确认·此镜头有对白·需配合录音</div>
+ </div>
+</div>
+
+<!-- A-07 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-07</div>
+ <div>
+ <div class="render-name">钟摆停止瞬间</div>
+ <div class="render-scene">场景C · 天降神针触发 · 关键镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">仰拍，钟摆在天空中突然静止。极短的一瞬间。画面有轻微的运动模糊残影——说明它刚刚停下来。钟摆底部有极微弱的红色能量开始聚集，说明某种东西即将从这里射出。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">视角</div>
+ <div class="render-detail-value">仰拍·钟摆居中·天空背景</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">关键细节</div>
+ <div class="render-detail-value">运动模糊残影·底部红色能量微弱聚集·「世界暂停一秒」的窒息感</div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- A-08 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-08</div>
+ <div>
+ <div class="render-name">天降神针触发·红色能量针插地</div>
+ <div class="render-scene">场景C · 天降神针触发 · 核心镜头</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-done">已有概念图</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">红色能量针从钟摆底部射出，笔直插入域峰广场地面。巨大光柱爆发。两侧K线屏幕全部变红，数字清零。清算在这一瞬间完成。这是EP1最重要的视觉冲击镜头。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">参考图</div>
+ <div class="render-detail-value">域峰广场概念图·导演已提供</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">红色能量为主·金色光芒·两侧K线屏幕全红</div>
+ </div>
+ </div>
+ <div class="render-img-done" onclick="document.getElementById('lightbox').classList.add('open');document.getElementById('lightbox-img').src='https://i.ibb.co/1Yz4yNR6/domain-peak.png'">
+ <img src="https://i.ibb.co/1Yz4yNR6/domain-peak.png" alt="域峰广场概念图">
+ </div>
+ </div>
+</div>
+
+<!-- A-09 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-09</div>
+ <div>
+ <div class="render-name">机械小兵狂喜 vs 散户错愕</div>
+ <div class="render-scene">场景C · 天降神针触发</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">同一个广场，两种极端反应的强烈对比。左侧机械小兵机械臂伸出，集体狂喜欢呼——疯批能量。右侧散户傻眼，手机屏幕清零，有人直接坐在地上。没有人和另一组人说话。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">构图</div>
+ <div class="render-detail-value">广角·两组人物分列左右·强烈对比</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">机械小兵特征</div>
+ <div class="render-detail-value">平时西装笔挺·机械臂从袖子里伸出·蓝色LED关节</div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- A-10 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-10</div>
+ <div>
+ <div class="render-name">灰鲸金融大厦前台·大堂</div>
+ <div class="render-scene">场景C2 · 沙茶面·混入灰鲸金融</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">灰鲸金融大厦内部大堂。现代金融机构风格，极简冷灰色调。重点：门口大堂放着一个可爱的鲸鱼吉祥物——和这栋大厦的「收割系统总部」本质形成极度反差，这是整个EP1最大的彩蛋。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">吉祥物</div>
+ <div class="render-detail-value">可爱鲸鱼·导演将提供设计图·这是重要彩蛋</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">冷灰白·极简·正规金融机构感</div>
+ </div>
+ </div>
+ <div class="render-img-placeholder">
+ <div class="render-img-placeholder-text">// 吉祥物设计图待导演提供</div>
+ </div>
+ </div>
+</div>
+
+<!-- A-11 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-11</div>
+ <div>
+ <div class="render-name">顶层走廊·Switch门锁</div>
+ <div class="render-scene">场景C2 · 进入控制室前</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">灰鲸金融大厦顶层走廊尽头。高级感，冷灰色调。两个机器人静止把守，纹丝不动。控制门旁边放着一台Switch游戏机——这是整个最严密收割系统的「门锁」。视觉上要有强烈的黑色幽默感。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">关键元素</div>
+ <div class="render-detail-value">两个机器人·极简金属门·Switch游戏机放在门旁桌上</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">情绪</div>
+ <div class="render-detail-value">压迫感+荒诞感·最严密的系统用最荒唐的门锁</div>
+ </div>
+ </div>
+ <div class="render-img-placeholder">
+ <div class="render-img-placeholder-text">// 顶层走廊参考图待渲染</div>
+ </div>
+ </div>
+</div>
+
+<!-- A-12 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-12</div>
+ <div>
+ <div class="render-name">控制室全景</div>
+ <div class="render-scene">场景D+E · 控制室</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">圆形控制室全景。全息星图天花板（永信城全网实时节点分布图）。透明地板下方清晰可见L3格子间幽绿光。中央：天降神针充能装置+物理按钮+倒计时牌。这是EP1最重要的场景之一。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">倒计时牌内容</div>
+ <div class="render-detail-value">「上次触发：20分钟前」「下次触发：6天23小时」</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">透明地板</div>
+ <div class="render-detail-value">清晰可见下方L3格子间·工人们低头工作·幽绿色光</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">冷蓝色为主·地板透出幽绿L3光·按钮发金色充能光</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">维克多工作台</div>
+ <div class="render-detail-value">边缘放着破损的旧硬件钱包·他当年第一个MEV Bot用的</div>
+ </div>
+ </div>
+ <div class="render-img-placeholder">
+ <div class="render-img-placeholder-text">// 控制室参考图待渲染</div>
+ </div>
+ </div>
+</div>
+
+<!-- A-13 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-13</div>
+ <div>
+ <div class="render-name">控制室·洞口打开</div>
+ <div class="render-scene">场景D+E · 名场面前</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">透明地板中央缓缓打开一个圆形洞口。幽绿色L3光从洞口透上来，和控制室冷蓝色形成交界。洞口下方：L3工人们依然在工位上狂欢地创作内容，完全没有抬头。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">关键细节</div>
+ <div class="render-detail-value">洞口边缘发幽绿色光·两种颜色交界·L3工人完全没有抬头</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">视角选择</div>
+ <div class="render-detail-value">需要俯拍+仰拍两个角度·名场面用仰拍</div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- A-14 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-14</div>
+ <div>
+ <div class="render-name">坠落过渡空间</div>
+ <div class="render-scene">场景F · 坠落过渡</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">黑暗中的坠落空间，两个世界之间的过渡地带。数据流像流星一样从四周划过。多个人物同时坠落——他们是惊恐的、挣扎的，不知道发生了什么。下方透来冷绿色L3光越来越强。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">人物状态</div>
+ <div class="render-detail-value">惊恐挣扎·不是麻木·他们是意外坠落的无辜者</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">纯黑背景·冷蓝数据流·下方冷绿L3光</div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- A-15 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-15</div>
+ <div>
+ <div class="render-name">L3工厂全景</div>
+ <div class="render-scene">场景G · L3初醒</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p1">优先级1</span>
+ <span class="badge badge-done">导演已有</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">L3情绪牛马工厂内部全景。无限延伸的格子间，工人们低头创作。头顶发光数据管道，金色情绪粒子向上流动。工人们面带空洞的笑容——这是整个S2最重要的标志性场景。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">构图参考</div>
+ <div class="render-detail-value">Stanley Kubrick式对称构图·压迫感</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">大面积冷蓝绿灰·极少数角落有极微弱暖色</div>
+ </div>
+ </div>
+ <div class="render-img-placeholder">
+ <div class="render-img-placeholder-text">// 导演手上已有·待上传相册后替换</div>
+ </div>
+ </div>
+</div>
+
+<!-- A-16 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">A-16</div>
+ <div>
+ <div class="render-name">404号工位区域·桌底空间</div>
+ <div class="render-scene">场景G+H · L3初醒·小猪救援</div>
+ </div>
+ <div class="render-badges">
+ <span class="badge badge-p2">优先级2</span>
+ <span class="badge badge-scene">SCENE</span>
+ </div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">L3格子间中某工位的桌底空间。昏暗、狭小。桌腿和地板。这是整个L3里唯一有暖色的角落——小猪面具发出的粉绿色光。背景可见其他工人的脚，他们仍在工作，没有人注意到桌底。</div>
+ <div class="render-details">
+ <div class="render-detail-item">
+ <div class="render-detail-label">核心情绪</div>
+ <div class="render-detail-value">L3唯一的暖色角落·面具粉绿色光·隐秘感</div>
+ </div>
+ <div class="render-detail-item">
+ <div class="render-detail-label">色调</div>
+ <div class="render-detail-value">昏暗冷绿为主·粉绿色面具光作为唯一暖色</div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- B类 -->
+<div class="section-title">B类 · 需要角色定妆照的场景（赵凯斯主要镜头）</div>
+
+<div class="note" style="margin-bottom:20px">📌 B类全部需要上传赵凯斯定妆照作为参考·L2版本使用L2定妆照·L3版本使用L3战斗版（熊猫眼）定妆照·即梦角色特征强度建议75-80%</div>
+
+<!-- B-01 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">B-01</div>
+ <div>
+ <div class="render-name">赵凯斯·监控室工位正面</div>
+ <div class="render-scene">场景A · 建立人物</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p2">优先级2</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">凌晨，冷蓝屏幕光。Diamond Hands便利贴贴在屏幕边。凉掉的咖啡。屏幕角落Victor Chen未读消息。赵凯斯专注工作的正面镜头。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">定妆照版本</div><div class="render-detail-value">L2版（无熊猫眼）</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">屏幕文字</div><div class="render-detail-value">后期叠加·Victor Chen消息内容</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- B-02 ~ B-04 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">B-02 ~ B-04</div>
+ <div>
+ <div class="render-name">赵凯斯·链上追踪三镜头</div>
+ <div class="render-scene">场景B · 发现异常·追踪·发现Victor Chen</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p2">优先级2</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">B-02：发现异常，眉头微皱，手停在键盘上。B-03：地址追踪网络图展开，身体前倾，手指悬在屏幕上，眼睛跟着线走。B-04：「Victor Chen·域峰广场·第88层」出现在屏幕中央，侧脸+屏幕双构图，「压制」的表情。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">定妆照版本</div><div class="render-detail-value">L2版（无熊猫眼）</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">屏幕文字</div><div class="render-detail-value">全部后期叠加</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- B-05 ~ B-07 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">B-05 ~ B-07</div>
+ <div>
+ <div class="render-name">赵凯斯·预感发作·看见天降神针·广场</div>
+ <div class="render-scene">场景C · 天降神针触发</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">B-05：街道上停步，仰头看天空，预感发作（熟悉的压迫感）。B-06：主观预感画面，虚焦冷白胶片质感，他「看见」的钟摆停止+红色针（只有他能看见）。B-07：背影构图，站在广场中央，四周散户傻眼·机械小兵狂喜。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">定妆照版本</div><div class="render-detail-value">L2版·B-06需要特殊后期调色</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">B-06特殊处理</div><div class="render-detail-value">虚焦·冷白·胶片划过质感·这是他的主观视角</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- B-08 ~ B-09 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">B-08 ~ B-09</div>
+ <div>
+ <div class="render-name">赵凯斯·混入大厦·Switch通关</div>
+ <div class="render-scene">场景C2 · 沙茶面·混入灰鲸金融</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p2">优先级2</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">B-08：自然地跟在员工身后混进大厦，表情轻松内心专注。B-09：顶层走廊里，拿着Switch游戏机专注打关，机器人在背景静止把守——这个画面要有强烈喜感。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">B-09情绪</div><div class="render-detail-value">黑色幽默·世界最严密的地方被一局游戏打开</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">定妆照版本</div><div class="render-detail-value">L2版（无熊猫眼）</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- B-10 ~ B-12 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">B-10 ~ B-12</div>
+ <div>
+ <div class="render-name">赵凯斯·进入控制室·发现装置·砸按钮</div>
+ <div class="render-scene">场景D · 控制室</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">B-10：进入控制室第一眼，低头看透明地板下的L3，表情：说不清的恶心。B-11：发现天降神针按钮和倒计时牌，从困惑到确认的表情变化。B-12：砸按钮瞬间慢动作，冷钱包从旁边震落。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">定妆照版本</div><div class="render-detail-value">L2版（无熊猫眼）·他还没画眼</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">倒计时牌</div><div class="render-detail-value">后期叠加文字内容</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- B-13 ~ B-14 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">B-13 ~ B-14</div>
+ <div>
+ <div class="render-name">赵凯斯·被机器人控制·被拖到洞口</div>
+ <div class="render-scene">场景E · 幼稚鬼</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">B-13：被机器人控制，看着径直走向电脑的维克多背影，眼睛里有震惊和迷惑。B-14：手抓住洞口边缘，身体悬空，往下看——L3工人依然在狂欢创作，完全没有抬头。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">B-14关键细节</div><div class="render-detail-value">L3工人没有抬头·他们在狂欢·这才更恐怖</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">定妆照版本</div><div class="render-detail-value">L2版·此时他还没有画熊猫眼</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- B-15 -->
+<div class="render-card" style="border-color:var(--gold)">
+ <div class="render-card-header">
+ <div class="render-id">B-15</div>
+ <div>
+ <div class="render-name">★ 名场面·洞口·幼稚鬼</div>
+ <div class="render-scene">场景E · EP1最重要镜头</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">维克多蹲在洞口，右手机械臂抓住赵凯斯悬空的手，像要拉他上来。赵凯斯一手抓洞口边缘，另一手抓住维克多胸口项链。项链冷钱包发蓝白色微光。仰拍，从洞口内向上看维克多，逆光，压迫感极强。这是整个EP1最重要的构图。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">需要定妆照</div><div class="render-detail-value">维克多控制室版+赵凯斯L2版·两张都需要</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">构图参考</div><div class="render-detail-value">狮子王刀疤推木法沙·仰拍·逆光·史诗感</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">光线</div><div class="render-detail-value">身后控制室冷蓝色·洞口透上来幽绿色L3光·两种颜色在维克多身上交界</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">项链细节</div><div class="render-detail-value">冷钱包在幽绿光照下发蓝白色微光·链条将断未断</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- B-16 ~ B-17 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">B-16 ~ B-17</div>
+ <div>
+ <div class="render-name">赵凯斯·坠落握冷钱包·L3醒来</div>
+ <div class="render-scene">场景E·F·G</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">B-16：链条断裂瞬间，手里握着冷钱包坠入黑暗，链条断裂的特效。B-17：L3地板上醒来，从地板视角起身，第一眼看见无限格子间，L3战斗版定妆照（熊猫眼）。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">B-16定妆照</div><div class="render-detail-value">L2版·手部特写+链条断裂特效</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">B-17定妆照</div><div class="render-detail-value">L3战斗版（熊猫眼）·他在坠落时画上了</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- C类 -->
+<div class="section-title">C类 · 其他角色镜头</div>
+
+<!-- C-01 ~ C-04 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">C-01 ~ C-04</div>
+ <div>
+ <div class="render-name">陈维克多·四个关键镜头</div>
+ <div class="render-scene">场景D+E · 控制室</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">C-01：进入控制室背影，机器人军团跟随。C-02：从胸口取下冷钱包项链插入电脑修复漏洞。C-03：修复完毕回头，右眼（人类的那只）扫过来，「五十万token」。C-04：发现项链不见了，站起来，机械臂横扫工作台，「Fuck。我的钱包。」</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">需要定妆照</div><div class="render-detail-value">维克多控制室版（带面罩带项链）</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">C-04关键</div><div class="render-detail-value">维克多S2唯一一次真正的情绪失控·比大喊更恐怖的是极轻的「Fuck」</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- C-05 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">C-05</div>
+ <div>
+ <div class="render-name">闪回·年轻的陈维克多（无面罩版）</div>
+ <div class="render-scene">场景E · 幼稚鬼闪回 · 2-3秒</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">咖啡馆，暖色调，与控制室形成强烈反差。年轻的陈维克多（约30岁），没有面罩，没有机械臂，眼睛里有光。嘴角带着轻微的笑，像在看一个天真的学生，说「幼稚鬼」——语气温和，甚至有点宠溺。这是整个EP1情感最重的2秒钟。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">人物特征</div><div class="render-detail-value">30岁·无面罩无机械臂·两条正常人类手臂·眼睛里有光</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">色调</div><div class="render-detail-value">暖黄色咖啡馆光·轻微暖色调回忆质感·和S2形成极度反差</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- C-06 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">C-06</div>
+ <div>
+ <div class="render-name">小猪女侠·404桌底等待</div>
+ <div class="render-scene">场景G+H · EP1结尾</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">404号工位桌底，靠着桌腿坐着。工服版，猪头半脸面具，面具发出微弱粉色+绿色霓虹光。这是整个L3里唯一一个暖色的角落。她的眼睛在面具后面看着镜头，冷静，像在等一件她早就预料到的事。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">需要定妆照</div><div class="render-detail-value">小猪女侠工服版</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">关键细节</div><div class="render-detail-value">面具粉绿色光·L3唯一暖色·背景工人的脚·他们没有注意到桌底</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- C-07 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">C-07</div>
+ <div>
+ <div class="render-name">阿明妈妈·灶台前忙碌（有对白）</div>
+ <div class="render-scene">场景A · 早餐店</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p2">优先级2</span><span class="badge badge-char">CHAR</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">阿明妈妈在灶台前忙碌，头也没抬，回答顾客问阿明去哪了：「去搞什么数字游民活动，说是能赚钱……你要辣椒吗？」凌晨四点就起来的那种忙碌感。这是EP6情感爆发的伏笔。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">人物设计</div><div class="render-detail-value">阿明妈妈·待导演确认设计·中年女性·手上有茧</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">情绪</div><div class="render-detail-value">平凡的忙碌·不知道儿子在哪·这才是最恐怖的</div></div>
+ </div>
+ <div class="note">⚠️ 此镜头有对白·需配合录音·阿明妈妈人物设计待确认</div>
+ </div>
+</div>
+
+<!-- D类 -->
+<div class="section-title">D类 · 后期特效镜头</div>
+
+<!-- D-01 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">D-01</div>
+ <div>
+ <div class="render-name">Victor Chen名字屏幕文字叠加</div>
+ <div class="render-scene">场景B · 镜头B-04</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p2">优先级2</span><span class="badge badge-fx">FX</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">在B-04渲染图上后期叠加屏幕文字：「域峰广场 · 灰鲸金融大厦 · 顶层 · 第88层 · 最高权限：Victor Chen」。字体：Share Tech Mono风格，白色高亮，冷蓝色背景。</div>
+ </div>
+</div>
+
+<!-- D-02 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">D-02</div>
+ <div>
+ <div class="render-name">招工广告视觉设计（三版本）</div>
+ <div class="render-scene">场景A · 城市大屏+早餐店电视+桌上二维码</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-fx">FX</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">同一套视觉系统，三个版本。核心文案：「你的情绪，是这个时代最稀缺的资产」「情绪创作园区·数字游民招募计划」「稳定收入·弹性工作·发挥你的创作天赋」。这个广告是L3入口的诱饵，EP1出现两次，是整个S2最重要的伏笔之一。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">版本A</div><div class="render-detail-value">城市大屏·Meme街区·夜间霓虹风格</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">版本B</div><div class="render-detail-value">早餐店小电视·普通家用电视质感</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">版本C</div><div class="render-detail-value">桌上小卡片·印刷品质感·扫码二维码</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">二维码</div><div class="render-detail-value">真实可扫的二维码·导向指定页面</div></div>
+ </div>
+ </div>
+</div>
+
+<!-- D-03 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">D-03</div>
+ <div>
+ <div class="render-name">预感画面视觉调色</div>
+ <div class="render-scene">场景C · 镜头B-06</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-fx">FX</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">在B-06渲染图上进行特殊调色：虚焦处理·整体偏冷白·轻微胶片划过质感·边缘轻微光晕·持续约1-2秒。这是赵凯斯主观预感画面的标志性视觉语言，S2每次他的预感出现时都用这套处理。</div>
+ </div>
+</div>
+
+<!-- D-04 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">D-04</div>
+ <div>
+ <div class="render-name">街道裂缝·人群坠落特效</div>
+ <div class="render-scene">场景D · 砸按钮后</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-fx">FX</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">域峰广场街道出现裂缝，无辜市民从裂缝坠落L3。这是赵凯斯砸碎按钮造成的意外后果——他以为是在修复系统，实际上造成了这个后果。控制室大屏幕实时播放这个画面。</div>
+ </div>
+</div>
+
+<!-- D-05 -->
+<div class="render-card">
+ <div class="render-card-header">
+ <div class="render-id">D-05</div>
+ <div>
+ <div class="render-name">72小时倒计时·EP1结尾</div>
+ <div class="render-scene">场景H · EP1最后一个画面</div>
+ </div>
+ <div class="render-badges"><span class="badge badge-p1">优先级1</span><span class="badge badge-fx">FX</span></div>
+ </div>
+ <div class="render-body">
+ <div class="render-desc">EP1最后一个画面。系统消息弹出，红色数字开始跳动：「距离全体记忆重置：72:00:00」然后「71:59:59」「71:59:58」……画面切黑。字幕「EP1 · 完」。这72小时是整个S2的时间主轴。</div>
+ <div class="render-details">
+ <div class="render-detail-item"><div class="render-detail-label">字体</div><div class="render-detail-value">Share Tech Mono·红色数字·冷蓝背景</div></div>
+ <div class="render-detail-item"><div class="render-detail-label">重要说明</div><div class="render-detail-value">72小时=整个工厂的记忆清零周期·不是针对赵凯斯个人·每7天全体清零一次</div></div>
+ </div>
+ </div>
+</div>
 
 </div>
 
@@ -637,14 +1462,409 @@
  <div class="script-location">永信城 · L2 · 清晨</div>
 
  <div class="script-action">航拍镜头缓慢扫过永信城L2核心区。清晨，金色霓虹还未完全熄灭，K线图招牌在楼宇间闪烁。人流开始涌现，穿西装的上班族，骑电动车送外卖的，在交易终端前盯屏幕的散户。<br><br>
- 和任何一座现实城市没有区别。</div>
+ 和任何一座现实城市没有区别。<br><br>字幕：<em>「永信城 · L2 · 清晨」</em></div>
 
  <hr class="script-divider">
 
  <div class="script-action">镜头缓慢仰拍。永信城天空中，巨型钟摆悬在城市上方，来回摆动，规律，缓慢。晨光从钟摆后透过来。<br><br>街道上的人没有人抬头看它。它一直都在。</div>
+
+ <hr class="script-divider">
+
+ <div class="script-action">域峰广场全景。灰鲸金融大厦在广场中央矗立，深灰色钛合金幕墙在晨光中发着冷光。<br><br>门口标志低调地反着光：<em>「Grey Whale Capital · 灰鲸金融」</em></div>
+
+ <hr class="script-divider">
+
+ <div class="script-action">切换到Meme街区。彩色霓虹，乱糟糟的活力。街边摊位，直播喊单，P图博主。城市大屏滚动着招工广告：</div><div class="script-direction">【城市大屏 · 招工广告】<br>「你的情绪，是这个时代最稀缺的资产」<br>「永信城情绪创作园区 · 现开放新一批数字游民招募」<br>「稳定收入 · 弹性工作 · 发挥你的创作天赋」<br>扫码了解 ↓ [二维码]</div>
+
+ <div class="script-action">没有人在意。</div>
+
+ <hr class="script-divider">
+
+ <div class="script-location">阿明妈妈早餐店 · 清晨</div>
+
+ <div class="script-action">清晨，烟气腾腾，锅铲声，人声嘈杂。妈妈在灶台前忙碌，凌晨四点就起来的那种快。角落小电视播着同款招工广告，桌上有印着二维码的小卡片。<br><br>
+ 一个老顾客端着豆浆坐下，随口问：</div>
+
+ <div class="script-dialogue">
+ <div class="script-char npc">顾客</div>
+ <div class="script-line">「好久没看见阿明了，他去哪了？」</div>
  </div>
 
- <div class="script-end">EP1 · 完<br><span style="font-size:9px;color:var(--text-dim);display:block;margin-top:8px">完整剧本已加载 ↑</span></div>
+ <div class="script-action">妈妈头也没抬，继续翻锅：</div>
+
+ <div class="script-dialogue">
+ <div class="script-char npc">阿明妈妈</div>
+ <div class="script-line">「去搞什么数字游民活动，说是能赚钱，年轻人嘛……」</div>
+ <div class="script-paren">（顿了一下，语气里有一丝说不清的东西，但很快过去了）</div>
+ <div class="script-line">「你要辣椒吗？」</div>
+ </div>
+
+ <div class="script-action">顾客点头。她继续忙。</div>
+
+ <hr class="script-divider">
+
+ <div class="script-location">系统运维写字楼 · 监控室 · 凌晨</div>
+
+ <div class="script-action">镜头进入监控室，落在赵凯斯身上。他已经在工位上坐了一夜。桌上的咖啡凉了，屏幕角落贴着「Diamond Hands」便利贴。<br><br>
+ 他发现了一个数据异常。三秒内定位，修复，继续。<br><br>
+ 镜头推进到屏幕角落——长期置顶的未读消息：<br>
+ <em>「老陈，S1我们赢了，你在哪？」</em><br>
+ 显示：已送达 · 未读。<br><br>
+ 他的手停了一下。然后关掉窗口，继续工作。</div>
+ </div>
+
+ <!-- 场景B -->
+ <div class="script-scene">
+ <div class="script-scene-header">
+ <span class="script-scene-num">场景 B</span>
+ <span class="script-scene-title">链上追踪 · 灰鲸幽灵</span>
+ <span class="script-scene-meta">90秒</span>
+ </div>
+ <div class="script-location">监控室 · 同一夜</div>
+
+ <div class="script-action">屏幕上出现一批异常做空地址，高亮变红。赵凯斯眉头微皱，手停在键盘上。他往回翻历史记录。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-paren">（低声，自言自语）</div>
+ <div class="script-line">「等等——这批地址……上次崩盘前12分钟也是它们。」</div>
+ </div>
+
+ <div class="script-action">屏幕上出现三次崩盘事件时间轴，每次都有同一个12分钟的高亮窗口。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-line">「每次。每次大崩盘之前都是这批地址提前做空。时机完全一致。」</div>
+ </div>
+
+ <div class="script-action">他开始追踪。屏幕上地址追踪网络图展开——金色线条从四面八方汇聚，所有节点指向同一个核心点。他用「时间差攻击」推算出节点的物理位置范围。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-line">「不是预测。是有人知道。或者……有人在制造这件事。」</div>
+ </div>
+
+ <div class="script-action">他切换到X平台监控模块。崩盘前信息流充斥着「永信城要崩了」的恐慌帖，发帖账号是AI生成的虚假面孔，买来的老账号，彼此互相转发，真实用户无意中放大传播。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-line">「假账号。批量的。恐慌是制造出来的——真实用户在帮它传播。」</div>
+ </div>
+
+ <div class="script-action">所有链条最终汇聚到一个核心地址。屏幕显示：</div>
+
+ <div class="script-direction">【屏幕显示】<br>「域峰广场 · 灰鲸金融大厦 · 顶层 · 第88层」<br>「最高权限：Victor Chen」<br>「节点首次活跃：[老陈消失那天]」</div>
+
+ <div class="script-action">赵凯斯盯着「Victor Chen」和那个日期。长达三秒的沉默。那一天他记得很清楚——老陈在Discord说了「Web3已死」，然后消失了。<br><br>
+ 同一天，这个节点第一次活跃。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-paren">（极轻，几乎是气声）</div>
+ <div class="script-line">「……不可能。老陈说他退了。」</div>
+ </div>
+
+ <div class="script-action">停顿。他压下这个念头，站起来拿外套。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-line">「肯定是同名的人。我去修掉这个节点。」</div>
+ </div>
+ </div>
+
+ <!-- 场景C -->
+ <div class="script-scene">
+ <div class="script-scene-header">
+ <span class="script-scene-num">场景 C</span>
+ <span class="script-scene-title">天降神针触发 · 域峰广场</span>
+ <span class="script-scene-meta">45-60秒</span>
+ </div>
+ <div class="script-location">永信城L2街道 · 赶往域峰广场途中</div>
+
+ <div class="script-action">赵凯斯快步走在街道上。周围正常的城市喧嚣。突然他的脚步慢下来——不是因为看见了什么，是一种从胸腔里涌上来的熟悉感。他停下来，抬头看向天空中的钟摆。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-paren">（内心独白，极轻）</div>
+ <div class="script-line">「又来了。预感。」「比上次强。」</div>
+ </div><div class="script-direction">【赵凯斯主观视角 · 预感画面】<br>虚焦 · 冷白色调 · 轻微胶片质感<br>他「看见」：钟摆停止，红色能量针从底部射出插入广场地面，光柱爆发，街道人们的账户清零。<br>持续1-2秒，然后画面「弹回」现实。</div>
+
+ <div class="script-action">钟摆还在摆动。一切正常。赵凯斯盯着钟摆，低头看手表。一秒，两秒……</div>
+
+ <div class="script-action"><strong>钟摆停了。</strong><br><br>就那么一瞬间。不到一秒。周围的人没有人注意到。</div>
+
+ <div class="script-direction">【赵凯斯主观视角】<br>他看见了那根针——红色能量从钟摆底部射出，笔直向下，巨大，压迫，无声。</div>
+
+ <div class="script-direction">【普通人视角切换】<br>屏幕突然全变红，数字瀑布般清零。有人傻住，有人坐在地上。<br><strong>他们没有看见针。</strong>他们只知道账户里的钱没了。</div>
+
+ <div class="script-action">域峰广场四周，那些平时西装笔挺的「工作人员」，机械臂从袖子里伸出，开始欢呼——机械振动的声音，整齐的，疯狂的。<br><br>
+ 红色针消失。钟摆重新开始摆动。一切「恢复正常」。<br><br>
+ 赵凯斯站在街道上，看着这一切。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-paren">（内心独白）</div>
+ <div class="script-line">「我的预感越来越准了。但我现在知道——这不是预感。是有人在触发这件事。而且……我知道在哪里。」</div>
+ </div>
+
+ <div class="script-action">他继续往前走，走向灰鲸金融大厦的方向。</div>
+ </div>
+
+ <!-- 场景C2 -->
+ <div class="script-scene">
+ <div class="script-scene-header">
+ <span class="script-scene-num">场景 C2</span>
+ <span class="script-scene-title">沙茶面 · 混入灰鲸金融</span>
+ <span class="script-scene-meta">30-40秒</span>
+ </div>
+ <div class="script-location">灰鲸金融大厦门口</div>
+
+ <div class="script-action">深灰色钛合金玻璃幕墙，极简现代。门口标志：<em>「Grey Whale Capital · 灰鲸金融」</em>。一群西装员工站在门外抽烟，表情凝重。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char npc">员工A</div>
+ <div class="script-paren">（叹气）</div>
+ <div class="script-line">「今天这波跌得真惨……」</div>
+ </div>
+
+ <div class="script-dialogue">
+ <div class="script-char npc">员工B</div>
+ <div class="script-line">「没事，等会儿去光明顶拜一拜，求K线山保佑。」</div>
+ </div>
+
+ <div class="script-dialogue">
+ <div class="script-char npc">员工A</div>
+ <div class="script-line">「对对对，拜完去B1吃个沙茶面，今天需要安慰一下自己。」</div>
+ </div>
+
+ <div class="script-action">赵凯斯路过，停了一下。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-line">「光明顶那个沙茶面，最近还有开吗？」</div>
+ </div>
+
+ <div class="script-dialogue">
+ <div class="script-char npc">员工B</div>
+ <div class="script-paren">（转头）</div>
+ <div class="script-line">「有！那沙茶面特好吃！」</div>
+ </div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-paren">（自然地跟上）</div>
+ <div class="script-line">「一起一起！」</div>
+ </div>
+
+ <div class="script-action">员工们刷卡进入。没有人注意到赵凯斯跟着走了进去。</div>
+
+ <hr class="script-divider">
+
+ <div class="script-location">灰鲸金融大厦 · 顶层走廊</div>
+
+ <div class="script-action">员工们各自散开回工位。赵凯斯独自向顶层方向走去。<br><br>
+ 走廊尽头——两个机器人静止把守。门口控制面板旁边，放着一台<strong>Switch游戏机</strong>。<br><br>
+ 赵凯斯停步，盯着它。他看了一眼机器人——没有任何反应。<br><br>
+ 他拿起Switch。屏幕亮了，是一个经典横版闯关游戏。<br><br>
+ 他站在走廊里，打了一局。<br><br>
+ 通关。<br><br>
+ 「咔嗒」一声，门开了。<br><br>
+ 机器人纹丝不动。程序里没有「有人玩游戏」这个场景。<br><br>
+ 赵凯斯把Switch放回去，走进控制室。</div>
+ </div>
+
+ <!-- 场景D+E -->
+ <div class="script-scene">
+ <div class="script-scene-header">
+ <span class="script-scene-num">场景 D+E</span>
+ <span class="script-scene-title">控制室 · 狮子王 · 幼稚鬼</span>
+ <span class="script-scene-meta">90-120秒 · EP1情感最高点</span>
+ </div>
+ <div class="script-location">灰鲸金融顶层 · 圆形控制室</div>
+
+ <div class="script-action">赵凯斯走进来。<br><br>
+ 第一眼——地板是透明的。<br><br>
+ 他低头看：无数格子间，无限延伸。工人们低着头工作，每人头顶有数据管道连着天花板，金色粒子向上流动。他们在笑——空洞的，满足的笑。<br><br>
+ 赵凯斯不知道那是什么。但他感到一种说不清的恶心。<br><br>
+ 他抬头，看见控制室中央——天降神针装置。一个物理按钮，正在充能，金色能量涌动。旁边的倒计时牌显示：</div>
+
+ <div class="script-direction">【倒计时牌】<br>「上次触发：20分钟前」<br>「下次触发：6天23小时」</div>
+
+ <div class="script-action">他走过去，举起手，<strong>砸下去。</strong><br><br>
+ 大屏幕亮起：永信城街道实时画面。地面开始出现裂缝。无辜市民从裂缝坠落。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-line">「不对，这不对——」</div>
+ </div>
+
+ <div class="script-action">他没有想到会这样。<br><br>
+ 门开了。十几个机器人涌入，动作整齐，没有声音。然后是<strong>陈维克多</strong>。<br><br>
+ 他走进来，看见被砸碎的按钮，停顿了零点五秒。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char victor">维克多</div>
+ <div class="script-paren">（低沉，克制的愤怒）</div>
+ <div class="script-line">「你怎么进来的。」</div>
+ <div class="script-paren">（不是问句）</div>
+ </div>
+
+ <div class="script-action">他径直走向电脑，根本不看赵凯斯。赵凯斯被机器人控制住，看着那个背影——面罩，机械右臂，深灰色风衣。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-paren">（声音发抖）</div>
+ <div class="script-line">「老陈……是你吗？」</div>
+ <div class="script-line">「你去哪了这两年？」</div>
+ </div>
+
+ <div class="script-action">维克多没有回应。手指飞速在键盘上操作。从胸口取下冷钱包项链，插入电脑接口——赵凯斯亲眼看见这个动作，意识到这东西是系统核心。<br><br>
+ 赵凯斯一直在问。维克多完全无视。<br><br>
+ 修复完成。维克多拔出冷钱包，重新挂回胸口。他转过身。右眼——那只仍是人类的眼睛——扫了赵凯斯一眼。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char victor">维克多</div>
+ <div class="script-paren">（平静，每个字都像在算账）</div>
+ <div class="script-line">「不仅这笔没收割成，修复这个漏洞还花了我五十万token。」</div>
+ </div>
+
+ <div class="script-action">他转向机器人：</div>
+
+ <div class="script-dialogue">
+ <div class="script-char victor">维克多</div>
+ <div class="script-line">「毁了我好事的人，扔下去。」</div>
+ </div>
+
+ <div class="script-dialogue">
+ <div class="script-char robot">机器人</div>
+ <div class="script-line">「系统规定，L3只接受主动进入的用户。需要您完成权限修改才能执行强制转移。」</div>
+ </div>
+
+ <div class="script-action">控制室中央透明地板缓缓打开一个洞。幽绿色光从下面透上来。维克多走向赵凯斯，把他拖到洞口边缘，推到边缘上。<br><br>
+ 赵凯斯抓住洞口边缘，身体悬空，往下看——L3工人们依然在工位上狂欢创作，完全没有抬头。<br><br>
+ 维克多蹲下来，抓住赵凯斯悬空的手。像要拉他上来。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char victor">维克多</div>
+ <div class="script-paren">（极轻，像在说一件早就计算好的事）</div>
+ <div class="script-line">「你不是有情绪吗。去用你的情绪，把我的亏损全部补上。」</div>
+ </div>
+
+ <div class="script-action">停顿。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char victor">维克多</div>
+ <div class="script-line">「幼稚鬼。」</div>
+ </div>
+
+ <div class="script-flashback">
+ <div class="script-flashback-label">// 闪回 · 2-3秒 · 暖色调</div>
+ <div class="script-location" style="font-size:9px">咖啡馆 · 多年前</div>
+ <div class="script-action" style="font-size:12px">年轻的陈维克多，三十岁，没有面罩，没有机械臂，眼睛里有光。看着对面的年轻赵凯斯，嘴角带着轻微的笑：</div>
+ <div class="script-dialogue">
+ <div class="script-char npc" style="color:var(--amber)">年轻赵凯斯</div>
+ <div class="script-line" style="font-size:13px">「Victor，web3概念这么好，为什么老是割韭菜？是不是builder就得学会拉盘才行——不然牛市你build，他赚钱，你还挨骂。」</div>
+ </div>
+ <div class="script-dialogue">
+ <div class="script-char npc" style="color:var(--amber)">年轻陈维克多</div>
+ <div class="script-paren">（摇头，轻笑，温和宠溺）</div>
+ <div class="script-line" style="font-size:13px">「幼稚鬼。」</div>
+ </div>
+ </div>
+
+ <div class="script-dialogue">
+ <div class="script-char zhao">赵凯斯</div>
+ <div class="script-line">「……老陈——！」</div>
+ <div class="script-paren">（坠落）</div>
+ </div>
+
+ <hr class="script-divider">
+
+ <div class="script-action">维克多站在洞口，看着黑暗，转身，继续操作。<br><br>
+ 三秒后——他低头看了一眼胸口。<br><br>
+ 项链不见了。<br><br>
+ 他站起来，机械右臂横扫工作台，所有东西扫落在地。<br><br>
+ 然后，极轻地：</div>
+
+ <div class="script-dialogue">
+ <div class="script-char victor">维克多</div>
+ <div class="script-line">「Fuck。」「我的钱包。」</div>
+ </div>
+ </div>
+
+ <!-- 场景F -->
+ <div class="script-scene">
+ <div class="script-scene-header">
+ <span class="script-scene-num">场景 F</span>
+ <span class="script-scene-title">坠落过渡 · 两个世界之间</span>
+ <span class="script-scene-meta">20-30秒</span>
+ </div>
+
+ <div class="script-action">黑暗。然后有光。<br><br>
+ 赵凯斯在坠落中睁开眼睛。<br><br>
+ 周围也有人在坠落——他们来自域峰广场，被街道裂缝误伤。他们惊恐，挣扎，不知道发生了什么，有人在尖叫，有人在抓空气。<br><br>
+ 赵凯斯握紧了冷钱包。他和他们不同——他知道发生了什么。<br><br>
+ 冷绿色的光从下方透上来，越来越强。</div>
+ </div>
+
+ <!-- 场景G+H -->
+ <div class="script-scene">
+ <div class="script-scene-header">
+ <span class="script-scene-num">场景 G+H</span>
+ <span class="script-scene-title">L3初醒 · 小猪救援 · 72小时</span>
+ <span class="script-scene-meta">30-45秒 · EP1结尾</span>
+ </div>
+ <div class="script-location">L3情绪牛马工厂 · 404号工位</div>
+
+ <div class="script-action">赵凯斯从黑暗中醒来。地板是硬的，灯光是冷的。<br><br>
+ 他撑起身体，往四周看——<br><br>
+ <em>无限延伸的格子间。</em><br><br>
+ 无数工人，白色工服，低着头，专注地创作内容。每人头顶有一根细细的数据管道连着天花板，金色粒子向上流动。<br><br>
+ 他们在笑。空洞的，满足的笑。没有人注意到他。<br><br>
+ 赵凯斯慢慢坐起来，手里还握着那个冷钱包。就在他要站起来的那一刻——<br><br>
+ 一只手从旁边工位的桌底伸出来，抓住他的手腕，用力往下拽。</div>
+
+ <hr class="script-divider">
+
+ <div class="script-location">404号工位 · 桌底</div>
+
+ <div class="script-action">昏暗，狭小。赵凯斯被拽到桌底，面对一个穿白色工服的人——猪头半脸面具，面具边缘透出微弱的粉色+绿色光。这是整个L3里唯一一点不是冷色的东西。<br><br>
+ 赵凯斯盯着面具，一时说不出话。<br><br>
+ 小猪女侠没有等他反应。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char xiaozhu">小猪女侠</div>
+ <div class="script-paren">（压低声音，平静，直接）</div>
+ <div class="script-line">「兄弟，你可能有点懵。」</div>
+ <div class="script-line">「但你现在没时间懵了。」</div>
+ </div>
+
+ <div class="script-direction">【系统消息弹出 · 赵凯斯视野角落】<br>「新用户检测完成 · 情绪指标：已激活」<br>「入职流程启动 · 距离全体记忆重置：72:00:00」</div>
+
+ <div class="script-dialogue">
+ <div class="script-char xiaozhu">小猪女侠</div>
+ <div class="script-line">「你还有72个小时。」</div>
+ <div class="script-line">「这不是针对你的倒计时——是整个工厂的。」</div>
+ <div class="script-line">「每7天，所有人的记忆全部清零一次。」</div>
+ <div class="script-line">「你有72小时找到出口。」</div>
+ </div>
+
+ <div class="script-action">停顿。</div>
+
+ <div class="script-dialogue">
+ <div class="script-char xiaozhu">小猪女侠</div>
+ <div class="script-line">「过了这个时间——」</div>
+ <div class="script-line">「你就<strong>不会再想出去了</strong>。」</div>
+ </div>
+
+ <div class="script-action">赵凯斯看着那个倒计时。</div>
+
+ <div class="script-countdown">72:00:00</div>
+
+ <div class="script-action" style="text-align:center;color:var(--text-dim)">画面切黑。</div>
+
+ <div class="script-end">EP1 · 完<br><span style="font-size:9px;color:var(--text-dim);display:block;margin-top:8px">EP2 将讲述：小猪是如何发现赵凯斯的</span></div>
+ </div>
 
 </div>
 </div>
@@ -656,10 +1876,13 @@ function closeLightbox() {
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
 
 function switchTab(tab) {
+ // Update buttons
  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
  event.target.classList.add('active');
+ // Update pages
  document.querySelectorAll('.tab-page').forEach(page => page.classList.remove('active'));
  document.getElementById('tab-' + tab).classList.add('active');
+ // Scroll to top
  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
