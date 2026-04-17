@@ -488,23 +488,368 @@ img{max-width:100%}
 <main class="main-content">
 
   <!-- HERO -->
-  <section id="hero" class="section" style="border-bottom:1px solid var(--border);background:radial-gradient(circle at 50% 100%,rgba(243,186,47,0.12) 0%,var(--bg) 60%);min-height:85vh;display:flex;align-items:center;padding:48px">
-    <div style="max-width:720px">
-      <div class="hero-eyebrow reveal">Creator Bible V2.0 已发布</div>
-      <h1 class="hero-h1 reveal" style="transition-delay:0.08s">
-        这不仅是一个故事。<br>
-        <span>这是人类不理性的反击。</span>
-      </h1>
-      <p class="hero-desc reveal" style="transition-delay:0.16s">
-        币安小说主导世界观基石，<strong>你需要阅读圣经，用 AI 视觉填满永信城的血肉。</strong><br>
-        你的每一个创作决定都将由 ipfun 协议确权与结算。
-      </p>
-      <div class="hero-btns reveal" style="transition-delay:0.24s">
-        <a href="#world" class="btn-white">📖 研读创作圣经</a>
-        <a href="#contest" class="btn-outline">🗺️ 参与区域设计大赛</a>
+  <section id="hero" style="position:relative;border-bottom:1px solid var(--border);min-height:100vh;display:flex;align-items:center;padding:48px;overflow:hidden;background:var(--bg)">
+
+    <!-- 深空背景渐变 -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 110%,rgba(243,186,47,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(42,173,204,0.04) 0%,transparent 50%);pointer-events:none;z-index:0"></div>
+
+    <!-- 粒子画布 -->
+    <canvas id="particleCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1"></canvas>
+
+    <!-- 极细网格线 -->
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(243,186,47,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(243,186,47,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1"></div>
+
+    <!-- 内容 -->
+    <div style="position:relative;z-index:2;max-width:720px">
+
+      <!-- 状态行 -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px" class="reveal">
+        <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;animation:pulse 2s infinite;display:inline-block;flex-shrink:0"></span>
+        <span style="font-size:11px;color:var(--muted);letter-spacing:0.15em;font-family:monospace">永信城 · 正在运行 · 情绪收割进行中</span>
       </div>
+
+      <!-- 共鸣钩子 -->
+      <div style="font-size:13px;color:var(--muted);letter-spacing:0.05em;margin-bottom:18px;line-height:1.9;max-width:540px;border-left:2px solid rgba(243,186,47,0.3);padding-left:16px" class="reveal" style="transition-delay:0.06s">
+        你盯过凌晨三点的K线。<br>
+        你知道天降神针是什么感觉。<br>
+        你孤独地进入循环，又孤独地出来。
+      </div>
+
+      <!-- 主标题 -->
+      <h1 style="font-size:clamp(30px,4.5vw,50px);font-weight:900;line-height:1.15;margin-bottom:20px;color:#fff" class="reveal">
+        那段经历，<br>
+        <span style="background:linear-gradient(90deg,#F3BA2F,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">值得变成一个传世的故事。</span>
+      </h1>
+
+      <!-- 副标题 -->
+      <p style="font-size:15px;color:#9CA3AF;max-width:560px;line-height:2;margin-bottom:16px" class="reveal">
+        永信城还没建完。<br>
+        这里缺你——你的愤怒、你的判断、你看穿的那一刻。<br>
+        <strong style="color:var(--text)">你在这里留下的，会比任何一笔交易都长久。</strong>
+      </p>
+
+      <!-- 数据行：实时感 -->
+      <div style="display:flex;gap:24px;margin-bottom:32px;flex-wrap:wrap" class="reveal">
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-size:18px;font-weight:900;color:var(--yellow);font-family:monospace" id="creatorCount">2,847</span>
+          <span style="font-size:10px;color:var(--muted);letter-spacing:0.1em">创作者已加入</span>
+        </div>
+        <div style="width:1px;background:var(--border);align-self:stretch"></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-size:18px;font-weight:900;color:var(--cyan);font-family:monospace" id="taskCount">143</span>
+          <span style="font-size:10px;color:var(--muted);letter-spacing:0.1em">任务进行中</span>
+        </div>
+        <div style="width:1px;background:var(--border);align-self:stretch"></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-size:18px;font-weight:900;color:var(--green);font-family:monospace">S2</span>
+          <span style="font-size:10px;color:var(--muted);letter-spacing:0.1em">制作中 · Phase 1</span>
+        </div>
+      </div>
+
+      <!-- CTA按钮 -->
+      <div style="display:flex;flex-wrap:wrap;gap:12px" class="reveal">
+        <a href="#bounties" style="display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:#000;padding:13px 24px;border-radius:4px;font-weight:700;font-size:13px;border:none;transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='#f0d060'" onmouseout="this.style.background='var(--yellow)'">
+          ⚡ 我要参与建造
+        </a>
+        <a href="#world" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--yellow);padding:13px 24px;border-radius:4px;font-weight:700;font-size:13px;border:1px solid rgba(243,186,47,0.4);transition:all 0.2s;text-decoration:none" onmouseover="this.style.background='rgba(243,186,47,0.08)'" onmouseout="this.style.background='transparent'">
+          📖 先了解这个世界
+        </a>
+      </div>
+
+      <!-- 底部提示 -->
+      <div style="margin-top:20px;font-size:11px;color:#4B5563;display:flex;align-items:center;gap:6px" class="reveal">
+        <span style="font-family:monospace">// 你的每一个创作，由 ipfun 协议永久确权上链</span>
+      </div>
+
     </div>
+
+    <!-- 右侧装饰：实时情绪数据流 -->
+    <div style="position:absolute;right:48px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;opacity:0.35;pointer-events:none;z-index:2" class="hero-data-stream">
+      <div style="font-family:monospace;font-size:10px;color:var(--yellow);letter-spacing:0.1em">// EMOTION_HARVEST_LOG</div>
+      <div id="dataStream" style="font-family:monospace;font-size:10px;color:var(--muted);line-height:2;white-space:nowrap"></div>
+    </div>
+
   </section>
+
+  <script>
+  // ── 粒子系统 ──
+  (function(){
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize(){
+      const hero = canvas.parentElement;
+      W = canvas.width = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+    }
+
+    function createParticle(){
+      return {
+        x: Math.random() * W,
+        y: H + Math.random() * 80,
+        size: Math.random() * 1.8 + 0.4,
+        speed: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.5 + 0.1,
+        drift: (Math.random() - 0.5) * 0.3,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.02 + 0.005
+      };
+    }
+
+    // 鼠标状态
+    let mouseX = -999, mouseY = -999;
+    let burstQueue = []; // 爆发点队列
+
+    function resize(){
+      const hero = canvas.parentElement;
+      W = canvas.width = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+    }
+
+    function createParticle(){
+      return {
+        x: Math.random() * W,
+        y: H + Math.random() * 80,
+        size: Math.random() * 1.8 + 0.4,
+        speed: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.5 + 0.1,
+        drift: (Math.random() - 0.5) * 0.3,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.02 + 0.005,
+        isBurst: false,   // 是否是爆发粒子
+        vx: 0, vy: 0,     // 爆发速度
+        life: 1,          // 爆发粒子生命值
+      };
+    }
+
+    // 爆发粒子：从点击位置向四周散射
+    function spawnBurst(cx, cy){
+      const count = 28 + Math.floor(Math.random() * 16);
+      for(let i = 0; i < count; i++){
+        const angle = (Math.PI * 2 / count) * i + Math.random() * 0.3;
+        const speed = Math.random() * 3.5 + 1.2;
+        const p = {
+          x: cx + (Math.random()-0.5)*8,
+          y: cy + (Math.random()-0.5)*8,
+          size: Math.random() * 2.5 + 0.6,
+          opacity: Math.random() * 0.5 + 0.5,
+          drift: 0,
+          pulse: 0,
+          pulseSpeed: 0.04,
+          isBurst: true,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 1,
+          decay: Math.random() * 0.018 + 0.012,
+        };
+        particles.push(p);
+      }
+      // 涟漪效果记录
+      burstQueue.push({ x: cx, y: cy, r: 0, maxR: 80, alpha: 0.6 });
+    }
+
+    function init(){
+      resize();
+      particles = [];
+      const count = Math.floor(W * H / 5500);
+      for(let i = 0; i < count; i++){
+        const p = createParticle();
+        p.y = Math.random() * H;
+        particles.push(p);
+      }
+    }
+
+    function draw(){
+      ctx.clearRect(0, 0, W, H);
+
+      // 绘制涟漪
+      burstQueue = burstQueue.filter(ring => {
+        ring.r += 3.5;
+        ring.alpha -= 0.018;
+        if(ring.alpha <= 0) return false;
+        ctx.beginPath();
+        ctx.arc(ring.x, ring.y, ring.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(243,186,47,${ring.alpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        // 第二道淡涟漪
+        ctx.beginPath();
+        ctx.arc(ring.x, ring.y, ring.r * 0.6, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(243,186,47,${ring.alpha * 0.4})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        return true;
+      });
+
+      // 鼠标周围的聚光晕
+      if(mouseX > 0 && mouseY > 0){
+        const grd = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 90);
+        grd.addColorStop(0, 'rgba(243,186,47,0.06)');
+        grd.addColorStop(1, 'rgba(243,186,47,0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(mouseX, mouseY, 90, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 绘制粒子
+      particles.forEach((p, idx) => {
+
+        if(p.isBurst){
+          // 爆发粒子：受重力和阻力，逐渐消散
+          p.vx *= 0.96;
+          p.vy *= 0.96;
+          p.vy -= 0.06; // 轻微上飘效果（反重力）
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= p.decay;
+          if(p.life <= 0){ particles.splice(idx, 1); return; }
+          const alpha = p.opacity * p.life;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(243,200,80,${alpha})`;
+          ctx.fill();
+          return;
+        }
+
+        // 普通粒子：鼠标吸引效果
+        const dx = mouseX - p.x;
+        const dy = mouseY - p.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        const attractRadius = 110;
+
+        let extraDrift = 0;
+        let extraSpeed = 0;
+        let sizeMult = 1;
+        let opacityMult = 1;
+
+        if(dist < attractRadius && mouseX > 0){
+          const force = (1 - dist / attractRadius) * 0.6;
+          extraDrift = (dx / dist) * force * 0.8;
+          extraSpeed = (dy / dist) * force * -0.5; // 被吸引向上
+          sizeMult = 1 + force * 0.8;
+          opacityMult = 1 + force * 0.6;
+        }
+
+        p.pulse += p.pulseSpeed;
+        const alpha = Math.min(1, p.opacity * opacityMult * (0.7 + 0.3 * Math.sin(p.pulse)));
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * sizeMult, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(243,186,47,${alpha})`;
+        ctx.fill();
+
+        // 尾迹
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p.x - (p.drift + extraDrift) * 5, p.y + p.size * 4);
+        ctx.strokeStyle = `rgba(243,186,47,${alpha * 0.25})`;
+        ctx.lineWidth = 0.4;
+        ctx.stroke();
+
+        p.y -= (p.speed + extraSpeed);
+        p.x += (p.drift + extraDrift * 0.3);
+        if(p.y < -10){ Object.assign(p, createParticle()); }
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    // 鼠标移动：追踪位置
+    canvas.parentElement.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    });
+
+    canvas.parentElement.addEventListener('mouseleave', () => {
+      mouseX = -999; mouseY = -999;
+    });
+
+    // 点击：爆发散射 + 数据流触发
+    canvas.parentElement.addEventListener('click', e => {
+      const rect = canvas.getBoundingClientRect();
+      const cx = e.clientX - rect.left;
+      const cy = e.clientY - rect.top;
+      spawnBurst(cx, cy);
+
+      // 同步触发数据流新行
+      const msgs = [
+        'EMOTION_BURST · MANUAL_RELEASE · DETECTED',
+        'ANOMALY · USER_RESISTANCE · L2_NODE',
+        'HARVEST_INTERRUPTED · PACKET_LOSS',
+        'SIGNAL_BREAK · CONSENSUS_SPIKE · +99%',
+        'WARNING · EMOTION_DUST_DISPERSED',
+      ];
+      const el = document.getElementById('dataStream');
+      if(el){
+        const msg = msgs[Math.floor(Math.random() * msgs.length)];
+        const ts  = new Date().toTimeString().slice(0,8);
+        const line = document.createElement('div');
+        line.style.cssText = 'color:#F3BA2F;font-weight:700;animation:fadeInLine 0.3s ease';
+        line.textContent = `[${ts}] ⚠ ${msg}`;
+        el.prepend(line);
+        setTimeout(() => line.style.color = '', 2000);
+      }
+    });
+
+    // 光标样式
+    canvas.parentElement.style.cursor = 'crosshair';
+
+    window.addEventListener('resize', init);
+    init();
+    draw();
+  })();
+
+  // ── 数据流伪造 ──
+  (function(){
+    const el = document.getElementById('dataStream');
+    if(!el) return;
+    const entries = [
+      'FOMO_SIGNAL · L2_NODE_0x3F · +892 units',
+      'EMOTION_EXTRACT · USER_4829 · GREED ▲',
+      'HARVEST_COMPLETE · BLOCK_#19847623',
+      'NEEDLE_TRIGGER · YUEFENG_SQ · -12.4%',
+      'COLLECTION · MEME_ZONE · 1,203 units',
+      'L3_INFLOW · WORKER_404 · ASSIGNED',
+      'CONSENSUS_SIGNAL · WEAK · 0.003',
+      'EMOTION_DUST · DENSITY_HIGH · NODE_7',
+      'EXTRACT_RATE · 98.7% · OPTIMAL',
+      'L1_SYNC · EPOCH_#2847 · OK',
+    ];
+    let lines = [];
+    function addLine(){
+      const entry = entries[Math.floor(Math.random() * entries.length)];
+      const ts = new Date().toTimeString().slice(0,8);
+      lines.unshift(`[${ts}] ${entry}`);
+      if(lines.length > 8) lines.pop();
+      el.innerHTML = lines.join('\n');
+    }
+    addLine();
+    setInterval(addLine, 2200);
+  })();
+
+  // ── 数字跳动 ──
+  (function(){
+    function animateCount(el, target, duration){
+      const start = 0;
+      const step = target / (duration / 16);
+      let current = start;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current).toLocaleString();
+        if(current >= target) clearInterval(timer);
+      }, 16);
+    }
+    setTimeout(() => {
+      const cc = document.getElementById('creatorCount');
+      const tc = document.getElementById('taskCount');
+      if(cc) animateCount(cc, 2847, 1200);
+      if(tc) animateCount(tc, 143, 800);
+    }, 400);
+  })();
+  </script>
 
   <!-- WORLD -->
   <section id="world" class="section" style="background:var(--bg)">
@@ -946,5 +1291,199 @@ function runMockAgent() {
   }, 2000);
 }
 </script>
+
+<!-- ── 音乐播放器 ── -->
+<audio id="bgAudio" loop preload="none">
+  <source src="https://raw.githubusercontent.com/tanagerdigital-arch/fanrenxiubi/main/Dual%20Elevator_%20Left%20%26%20Right.mp3" type="audio/mpeg">
+</audio>
+
+<div id="musicPlayer" style="
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  background:rgba(13,16,22,0.92);
+  border:1px solid rgba(243,186,47,0.25);
+  border-radius:12px;
+  padding:14px 16px;
+  display:flex;flex-direction:column;gap:10px;
+  min-width:220px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 8px 32px rgba(0,0,0,0.5),0 0 0 1px rgba(243,186,47,0.08);
+  transition:all 0.3s ease;
+">
+  <!-- 顶部：曲目信息 -->
+  <div style="display:flex;align-items:center;gap:10px">
+    <!-- 唱片动画 -->
+    <div id="discWrap" style="width:36px;height:36px;flex-shrink:0;position:relative">
+      <div id="disc" style="
+        width:36px;height:36px;border-radius:50%;
+        background:conic-gradient(from 0deg,#1a1a1a 0%,#2a2a2a 25%,#1a1a1a 50%,#2a2a2a 75%,#1a1a1a 100%);
+        border:2px solid rgba(243,186,47,0.3);
+        display:flex;align-items:center;justify-content:center;
+        transition:animation 0.3s;
+      ">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--yellow);opacity:0.8"></div>
+      </div>
+    </div>
+    <!-- 曲目文字 -->
+    <div style="flex:1;min-width:0">
+      <div style="font-size:12px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Dual Elevator</div>
+      <div style="font-size:10px;color:var(--muted);font-family:monospace;margin-top:1px">永信城 · 环境音轨 01</div>
+    </div>
+    <!-- 折叠按钮 -->
+    <button id="collapseBtn" onclick="toggleCollapse()" style="
+      background:none;border:none;color:var(--muted);font-size:14px;
+      cursor:pointer;padding:2px;line-height:1;transition:color 0.2s;flex-shrink:0;
+    " title="收起">▼</button>
+  </div>
+
+  <!-- 可折叠区域 -->
+  <div id="playerBody">
+    <!-- 波形可视化 -->
+    <div id="waveform" style="display:flex;align-items:center;justify-content:center;gap:2px;height:24px">
+      <div class="wave-bar" style="width:2px;height:4px;background:rgba(243,186,47,0.4);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:8px;background:rgba(243,186,47,0.4);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:14px;background:rgba(243,186,47,0.5);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:20px;background:rgba(243,186,47,0.6);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:16px;background:rgba(243,186,47,0.5);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:24px;background:rgba(243,186,47,0.7);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:18px;background:rgba(243,186,47,0.6);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:12px;background:rgba(243,186,47,0.5);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:22px;background:rgba(243,186,47,0.6);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:10px;background:rgba(243,186,47,0.4);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:16px;background:rgba(243,186,47,0.5);border-radius:1px;transition:height 0.15s"></div>
+      <div class="wave-bar" style="width:2px;height:6px;background:rgba(243,186,47,0.3);border-radius:1px;transition:height 0.15s"></div>
+    </div>
+
+    <!-- 进度条 -->
+    <div style="position:relative;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;cursor:pointer" onclick="seekAudio(event,this)">
+      <div id="progressBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--yellow),#f59e0b);border-radius:2px;transition:width 0.5s linear;pointer-events:none"></div>
+    </div>
+
+    <!-- 时间 + 控件 -->
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span id="timeDisplay" style="font-size:10px;color:var(--muted);font-family:monospace">0:00 / --:--</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <!-- 音量 -->
+        <button onclick="toggleMute()" id="muteBtn" style="background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;padding:2px;transition:color 0.2s" title="静音">🔊</button>
+        <!-- 播放/暂停 -->
+        <button onclick="togglePlay()" id="playBtn" style="
+          background:var(--yellow);border:none;
+          width:32px;height:32px;border-radius:50%;
+          display:flex;align-items:center;justify-content:center;
+          font-size:12px;cursor:pointer;transition:background 0.2s;
+          color:#000;font-weight:700;
+        " title="播放">▶</button>
+      </div>
+    </div>
+
+    <!-- 提示文字 -->
+    <div style="font-size:9px;color:#374151;font-family:monospace;letter-spacing:0.05em;text-align:center">
+      // 永信城环境音轨 · 点击播放进入状态
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes fadeInLine {
+  from { opacity:0; transform:translateX(-8px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes spin-disc {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes wave-anim {
+  0%,100% { height: var(--base-h); }
+  50%      { height: calc(var(--base-h) * 2.2); }
+}
+.disc-playing { animation: spin-disc 4s linear infinite; }
+.wave-bar-playing { animation: wave-anim 0.6s ease-in-out infinite; }
+</style>
+
+<script>
+(function(){
+  const audio   = document.getElementById('bgAudio');
+  const playBtn = document.getElementById('playBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const disc    = document.getElementById('disc');
+  const prog    = document.getElementById('progressBar');
+  const timeEl  = document.getElementById('timeDisplay');
+  const bars    = document.querySelectorAll('.wave-bar');
+  let playing   = false;
+  let muted     = false;
+  let collapsed = false;
+
+  // 格式化时间
+  function fmt(s){ const m=Math.floor(s/60),sec=Math.floor(s%60); return `${m}:${sec<10?'0':''}${sec}`; }
+
+  // 播放/暂停
+  window.togglePlay = function(){
+    if(!playing){
+      audio.play().then(()=>{
+        playing = true;
+        playBtn.textContent = '⏸';
+        playBtn.style.background = 'rgba(243,186,47,0.3)';
+        playBtn.style.color = 'var(--yellow)';
+        disc.classList.add('disc-playing');
+        bars.forEach((b,i)=>{
+          const h = [4,8,14,20,16,24,18,12,22,10,16,6][i];
+          b.style.setProperty('--base-h', h+'px');
+          b.style.animationDelay = (i*0.07)+'s';
+          b.classList.add('wave-bar-playing');
+          b.style.background = 'rgba(243,186,47,0.7)';
+        });
+      }).catch(()=>{});
+    } else {
+      audio.pause();
+      playing = false;
+      playBtn.textContent = '▶';
+      playBtn.style.background = 'var(--yellow)';
+      playBtn.style.color = '#000';
+      disc.classList.remove('disc-playing');
+      bars.forEach(b=>{
+        b.classList.remove('wave-bar-playing');
+        b.style.background = 'rgba(243,186,47,0.4)';
+      });
+    }
+  };
+
+  // 静音
+  window.toggleMute = function(){
+    muted = !muted;
+    audio.muted = muted;
+    muteBtn.textContent = muted ? '🔇' : '🔊';
+  };
+
+  // 进度跳转
+  window.seekAudio = function(e, el){
+    if(!audio.duration) return;
+    const rect = el.getBoundingClientRect();
+    const pct  = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = pct * audio.duration;
+  };
+
+  // 进度更新
+  audio.addEventListener('timeupdate', ()=>{
+    if(!audio.duration) return;
+    const pct = (audio.currentTime / audio.duration) * 100;
+    prog.style.width = pct + '%';
+    timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+  });
+
+  // 折叠
+  window.toggleCollapse = function(){
+    const body = document.getElementById('playerBody');
+    const btn  = document.getElementById('collapseBtn');
+    collapsed  = !collapsed;
+    body.style.display   = collapsed ? 'none' : '';
+    btn.textContent      = collapsed ? '▲' : '▼';
+    btn.title            = collapsed ? '展开' : '收起';
+  };
+
+  // 音量默认 70%
+  audio.volume = 0.7;
+})();
+</script>
+
 </body>
 </html>
