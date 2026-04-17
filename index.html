@@ -427,17 +427,131 @@ img{max-width:100%}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
+  /* 侧边栏隐藏 */
   .sidebar{display:none}
   .main-content{margin-left:0}
-  .section{padding:40px 20px}
-  .grid-3,.grid-2,.grid-4,.token-grid,.rights-grid,.predict-grid,.faq-grid,.agent-grid{grid-template-columns:1fr}
-  .bounty-flex{flex-direction:column}
-  .map-grid{grid-template-columns:1fr 1fr}
-  .ipfun-bar{flex-direction:column}
-  .loop-step{grid-template-columns:40px 1fr}
-  .hero-h1{font-size:28px}
+
+  /* 顶部导航 */
+  .site-header{padding:0 16px}
+  .header-nav{display:none}
+
+  /* sections */
+  .section{padding:36px 16px}
   .sec-title{font-size:22px}
+
+  /* grids → 单列 */
+  .grid-3,.grid-2,.grid-4,
+  .token-grid,.rights-grid,
+  .predict-grid,.faq-grid,
+  .agent-grid{grid-template-columns:1fr}
+
+  /* bounties flex */
+  .bounty-flex{flex-direction:column}
+  .bounty-right{display:none} /* 手机隐藏phone mockup */
+
+  /* map */
+  .map-grid{grid-template-columns:1fr 1fr}
+
+  /* ipfun bar */
+  .ipfun-bar{flex-direction:column;gap:16px}
+
+  /* loop */
+  .loop-step{grid-template-columns:40px 1fr}
+
+  /* faq */
   .faq-card.full{grid-column:1}
+
+  /* agent */
+  .agent-grid{grid-template-columns:1fr 1fr}
+
+  /* ── HERO 手机版 ── */
+  #hero{
+    padding:80px 20px 48px;
+    min-height:auto;
+    align-items:flex-start;
+  }
+
+  /* 标题强制换行，取消nowrap */
+  #hero h1[style*="nowrap"]{
+    white-space:normal !important;
+    font-size:18px !important;
+  }
+
+  /* 超大标题字号 */
+  #hero > div > div[style*="clamp(28px"]{
+    font-size:26px !important;
+  }
+
+  /* 钩子文字 */
+  #hero > div > div[style*="border-left"]{
+    font-size:12px;
+  }
+
+  /* 副标题 */
+  #hero p{font-size:13px}
+
+  /* 数据行 */
+  #hero > div > div[style*="gap:24px"]{
+    gap:16px;
+  }
+
+  /* 按钮 */
+  #hero > div > div[style*="flex-wrap:wrap"]{
+    flex-direction:column;
+  }
+  #hero a[style*="padding:13px"]{
+    width:100%;
+    justify-content:center;
+    font-size:12px;
+    padding:12px 16px !important;
+  }
+
+  /* 右侧数据流在手机上隐藏 */
+  .hero-data-stream{display:none}
+
+  /* 推文节点：手机端重新布局，集中在右侧较小区域 */
+  #tweetNodes .tweet-node:nth-child(1){left:75%;top:15%}
+  #tweetNodes .tweet-node:nth-child(2){left:90%;top:28%}
+  #tweetNodes .tweet-node:nth-child(3){left:70%;top:45%}
+  #tweetNodes .tweet-node:nth-child(4){left:85%;top:58%}
+  #tweetNodes .tweet-node:nth-child(5){left:75%;top:72%}
+  #tweetNodes .tweet-node:nth-child(6){left:90%;top:42%}
+
+  /* 推文弹窗手机端宽度 */
+  #tweetPopup{
+    width:calc(100vw - 40px) !important;
+    max-width:320px;
+    left:50% !important;
+    transform:translateX(-50%);
+    top:auto !important;
+    bottom:20px !important;
+    position:fixed !important;
+  }
+
+  /* 音乐播放器手机端 */
+  #musicPlayer{
+    bottom:12px;
+    right:12px;
+    min-width:180px;
+  }
+
+  /* 创作者画像 2列→1列 */
+  #incentive > div > div > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+  }
+}
+
+@media(max-width:480px){
+  .agent-grid{grid-template-columns:1fr}
+  .map-grid{grid-template-columns:1fr}
+
+  #hero > div > div[style*="clamp(28px"]{
+    font-size:22px !important;
+  }
+
+  #tweetPopup{
+    width:calc(100vw - 24px) !important;
+  }
 }
 </style>
 </head>
@@ -460,7 +574,27 @@ img{max-width:100%}
   </div>
 </header>
 
-<!-- ── SIDEBAR ── -->
+<!-- ── 手机端二级导航 ── -->
+<nav style="display:none" id="mobileNav">
+  <div style="overflow-x:auto;white-space:nowrap;padding:0 16px;height:44px;display:flex;align-items:center;gap:20px;background:var(--nav);border-bottom:1px solid var(--border);position:fixed;top:60px;left:0;right:0;z-index:90;-webkit-overflow-scrolling:touch">
+    <a href="#hero" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">永信城</a>
+    <a href="#world" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">世界观</a>
+    <a href="#bounties" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">视觉悬赏</a>
+    <a href="#contest" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">地图大赛</a>
+    <a href="#incentive" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">激励</a>
+    <a href="#predict" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">预测</a>
+    <a href="#agent" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">审核</a>
+    <a href="#faq" style="font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;padding:4px 0;border-bottom:2px solid transparent" onclick="setMobileActive(this)">质疑</a>
+  </div>
+</nav>
+
+<style>
+@media(max-width:900px){
+  #mobileNav{display:block !important}
+  .main-content{padding-top:104px}
+  #hero{padding-top:32px}
+}
+</style>
 <aside class="sidebar">
   <div class="sidebar-phase">
     <div class="phase-badge">Phase 1 进行中</div>
@@ -495,7 +629,7 @@ img{max-width:100%}
       background-image:url('https://i.ibb.co/0p3nFJLt/jimeng-2026-04-17-4364-1.png');
       background-size:cover;background-position:center right;
       background-repeat:no-repeat;
-      opacity:0.22;
+      opacity:0.30;
     "></div>
 
     <!-- 深色遮罩：左侧更暗保护文字，右侧稍透让城市感透出 -->
@@ -1655,6 +1789,16 @@ img{max-width:100%}
 </main>
 
 <script>
+// 手机端导航高亮
+function setMobileActive(el){
+  document.querySelectorAll('#mobileNav a').forEach(a=>{
+    a.style.color='var(--muted)';
+    a.style.borderBottomColor='transparent';
+  });
+  el.style.color='var(--yellow)';
+  el.style.borderBottomColor='var(--yellow)';
+}
+
 // Scroll spy
 const sections = document.querySelectorAll('section[id]');
 const links = document.querySelectorAll('.sidebar-link');
