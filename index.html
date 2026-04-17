@@ -468,11 +468,11 @@ img{max-width:100%}
     <div class="sidebar-sub">情绪之证 · 共创大厅</div>
   </div>
   <nav class="sidebar-nav">
-    <a href="#hero" class="sidebar-link active"><span class="icon">📊</span>大厅概览</a>
+    <a href="#hero" class="sidebar-link active"><span class="icon">🏙️</span>欢迎来到永信城</a>
     <a href="#world" class="sidebar-link"><span class="icon">📖</span>世界观与红线</a>
     <a href="#bounties" class="sidebar-link"><span class="icon">🎬</span>官方视觉悬赏</a>
     <a href="#contest" class="sidebar-link"><span class="icon">🗺️</span>区域设计大赛<span class="sidebar-dot"></span></a>
-    <a href="#incentive" class="sidebar-link"><span class="icon">💰</span>激励与版权</a>
+    <a href="#incentive" class="sidebar-link"><span class="icon">💰</span>激励·创作者画像</a>
     <a href="#predict" class="sidebar-link"><span class="icon">📈</span>预测市场<span class="sidebar-soon">S2后</span></a>
     <a href="#agent" class="sidebar-link"><span class="icon">🛡️</span>审核与结算</a>
     <a href="#faq" class="sidebar-link"><span class="icon">⚡</span>直面质疑</a>
@@ -490,8 +490,24 @@ img{max-width:100%}
   <!-- HERO -->
   <section id="hero" style="position:relative;border-bottom:1px solid var(--border);min-height:100vh;display:flex;align-items:center;padding:48px;overflow:hidden;background:var(--bg)">
 
-    <!-- 深空背景渐变 -->
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 110%,rgba(243,186,47,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(42,173,204,0.04) 0%,transparent 50%);pointer-events:none;z-index:0"></div>
+    <!-- 永信城背景图 -->
+    <div style="position:absolute;inset:0;z-index:0;
+      background-image:url('https://i.ibb.co/0p3nFJLt/jimeng-2026-04-17-4364-1.png');
+      background-size:cover;background-position:center right;
+      background-repeat:no-repeat;
+      opacity:0.22;
+    "></div>
+
+    <!-- 深色遮罩：左侧更暗保护文字，右侧稍透让城市感透出 -->
+    <div style="position:absolute;inset:0;z-index:0;
+      background:linear-gradient(
+        105deg,
+        rgba(10,13,20,0.97) 0%,
+        rgba(10,13,20,0.88) 45%,
+        rgba(10,13,20,0.55) 75%,
+        rgba(10,13,20,0.35) 100%
+      );
+    "></div>
 
     <!-- 粒子画布 -->
     <canvas id="particleCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1"></canvas>
@@ -508,33 +524,34 @@ img{max-width:100%}
         <span style="font-size:11px;color:var(--muted);letter-spacing:0.15em;font-family:monospace">永信城 · 正在运行 · 情绪收割进行中</span>
       </div>
 
-      <!-- 共鸣钩子 -->
-      <div style="font-size:13px;color:var(--muted);letter-spacing:0.05em;margin-bottom:18px;line-height:1.9;max-width:540px;border-left:2px solid rgba(243,186,47,0.3);padding-left:16px" class="reveal" style="transition-delay:0.06s">
-        你盯过凌晨三点的K线。<br>
-        你知道天降神针是什么感觉。<br>
-        你孤独地进入循环，又孤独地出来。
+      <!-- 超大标题 -->
+      <div style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px" class="reveal">
+        欢迎来到<span style="background:linear-gradient(90deg,#F3BA2F,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">「永信城」</span>
       </div>
 
-      <!-- 主标题 -->
-      <h1 style="font-size:clamp(30px,4.5vw,50px);font-weight:900;line-height:1.15;margin-bottom:20px;color:#fff" class="reveal">
-        那段经历，<br>
-        <span style="background:linear-gradient(90deg,#F3BA2F,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">值得变成一个传世的故事。</span>
+      <!-- 共鸣钩子 小字灰色 -->
+      <div style="font-size:13px;color:var(--muted);letter-spacing:0.03em;margin-bottom:22px;line-height:2;max-width:560px;border-left:2px solid rgba(243,186,47,0.3);padding-left:16px" class="reveal">
+        你盯过凌晨三点的K线。<br>
+        你寻找一个一个角度。<br>
+        你知道天降神针是什么感觉。<br>
+        然而当你孤独地进入循环，又孤独地出来。<br>
+        「去中心化」还是那个让你充满幻想的主体么？
+      </div>
+
+      <!-- 主标题 大字 一行 -->
+      <h1 style="font-size:clamp(18px,2.4vw,32px);font-weight:900;line-height:1.3;margin-bottom:20px;color:#fff;white-space:nowrap" class="reveal">
+        每一个加密交易者的经历，<span style="background:linear-gradient(90deg,#F3BA2F,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">都值得变成一个传世的故事。</span>
       </h1>
 
-      <!-- 副标题 -->
-      <p style="font-size:15px;color:#9CA3AF;max-width:560px;line-height:2;margin-bottom:16px" class="reveal">
-        永信城还没建完。<br>
-        这里缺你——你的愤怒、你的判断、你看穿的那一刻。<br>
-        <strong style="color:var(--text)">你在这里留下的，会比任何一笔交易都长久。</strong>
+      <!-- 副标题 灰色 -->
+      <p style="font-size:14px;color:#6B7280;max-width:540px;line-height:2;margin-bottom:28px" class="reveal">
+        永信城正在完善当中。<br>
+        你的情绪、你的判断、你看透的那一刻都会让这个魔幻城市更丰满。<br>
+        相信我们，你在这里留下的，会比任何一笔交易都长久。
       </p>
 
-      <!-- 数据行：实时感 -->
+      <!-- 数据行 只保留任务进行中 -->
       <div style="display:flex;gap:24px;margin-bottom:32px;flex-wrap:wrap" class="reveal">
-        <div style="display:flex;flex-direction:column;gap:2px">
-          <span style="font-size:18px;font-weight:900;color:var(--yellow);font-family:monospace" id="creatorCount">2,847</span>
-          <span style="font-size:10px;color:var(--muted);letter-spacing:0.1em">创作者已加入</span>
-        </div>
-        <div style="width:1px;background:var(--border);align-self:stretch"></div>
         <div style="display:flex;flex-direction:column;gap:2px">
           <span style="font-size:18px;font-weight:900;color:var(--cyan);font-family:monospace" id="taskCount">143</span>
           <span style="font-size:10px;color:var(--muted);letter-spacing:0.1em">任务进行中</span>
@@ -548,11 +565,11 @@ img{max-width:100%}
 
       <!-- CTA按钮 -->
       <div style="display:flex;flex-wrap:wrap;gap:12px" class="reveal">
-        <a href="#bounties" style="display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:#000;padding:13px 24px;border-radius:4px;font-weight:700;font-size:13px;border:none;transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='#f0d060'" onmouseout="this.style.background='var(--yellow)'">
-          ⚡ 我要参与建造
+        <a href="https://ipfun.io" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:#000;padding:13px 24px;border-radius:4px;font-weight:700;font-size:13px;border:none;transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='#f0d060'" onmouseout="this.style.background='var(--yellow)'">
+          ⚡ 领取代币，开始城市建造
         </a>
         <a href="#world" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--yellow);padding:13px 24px;border-radius:4px;font-weight:700;font-size:13px;border:1px solid rgba(243,186,47,0.4);transition:all 0.2s;text-decoration:none" onmouseover="this.style.background='rgba(243,186,47,0.08)'" onmouseout="this.style.background='transparent'">
-          📖 先了解这个世界
+          📖 了解世界观
         </a>
       </div>
 
@@ -563,7 +580,296 @@ img{max-width:100%}
 
     </div>
 
-    <!-- 右侧装饰：实时情绪数据流 -->
+    <!-- 六个触发点节点 -->
+    <div id="tweetNodes" style="position:absolute;inset:0;z-index:3;pointer-events:none">
+
+      <!-- 节点01 · 左上 · BSC Meme Trader · 黄色 -->
+      <div class="tweet-node" data-id="0" style="left:72%;top:22%;pointer-events:all">
+        <div class="node-dot" style="background:#F3BA2F;box-shadow:0 0 8px rgba(243,186,47,0.7)"></div>
+        <div class="node-ring" style="border-color:rgba(243,186,47,0.4)"></div>
+      </div>
+
+      <!-- 节点02 · 右上 · 创作者是我还是AI · 粉色 -->
+      <div class="tweet-node" data-id="1" style="left:85%;top:38%;pointer-events:all">
+        <div class="node-dot" style="background:#F472B6;box-shadow:0 0 8px rgba(244,114,182,0.7)"></div>
+        <div class="node-ring" style="border-color:rgba(244,114,182,0.4)"></div>
+      </div>
+
+      <!-- 节点03 · 中央 · 六年老韭菜（无注解）· 红色 -->
+      <div class="tweet-node" data-id="2" style="left:60%;top:55%;pointer-events:all">
+        <div class="node-dot" style="background:#F05070;box-shadow:0 0 8px rgba(240,80,112,0.7)"></div>
+        <div class="node-ring" style="border-color:rgba(240,80,112,0.4)"></div>
+      </div>
+
+      <!-- 节点04 · 左下 · DeFi老兵 · 绿色 -->
+      <div class="tweet-node" data-id="3" style="left:68%;top:72%;pointer-events:all">
+        <div class="node-dot" style="background:#22C55E;box-shadow:0 0 8px rgba(34,197,94,0.7)"></div>
+        <div class="node-ring" style="border-color:rgba(34,197,94,0.4)"></div>
+      </div>
+
+      <!-- 节点05 · 右下 · 淘系牛马 · 紫色 -->
+      <div class="tweet-node" data-id="4" style="left:82%;top:68%;pointer-events:all">
+        <div class="node-dot" style="background:#A855F7;box-shadow:0 0 8px rgba(168,85,247,0.7)"></div>
+        <div class="node-ring" style="border-color:rgba(168,85,247,0.4)"></div>
+      </div>
+
+      <!-- 节点06 · 右中 · 陈维克多档案 · 蓝色 -->
+      <div class="tweet-node" data-id="5" style="left:78%;top:48%;pointer-events:all">
+        <div class="node-dot" style="background:#4DAFFF;box-shadow:0 0 8px rgba(77,175,255,0.7)"></div>
+        <div class="node-ring" style="border-color:rgba(77,175,255,0.4)"></div>
+      </div>
+
+    </div>
+
+    <!-- 推文弹窗 -->
+    <div id="tweetPopup" style="
+      display:none;position:absolute;z-index:20;
+      width:300px;
+      background:rgba(10,13,20,0.97);
+      border:1px solid rgba(243,186,47,0.35);
+      border-radius:12px;padding:20px;
+      box-shadow:0 16px 48px rgba(0,0,0,0.7),0 0 0 1px rgba(243,186,47,0.08);
+      backdrop-filter:blur(16px);
+      pointer-events:all;
+    ">
+      <button onclick="closeTweetPopup()" style="
+        position:absolute;top:12px;right:14px;
+        background:none;border:none;color:#4B5563;
+        font-size:16px;cursor:pointer;line-height:1;
+        transition:color 0.2s;
+      " onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#4B5563'">✕</button>
+      <div id="tweetContent"></div>
+    </div>
+
+    <style>
+    .tweet-node{
+      position:absolute;transform:translate(-50%,-50%);
+      width:28px;height:28px;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+    .node-dot{
+      width:8px;height:8px;border-radius:50%;
+      background:var(--yellow);
+      box-shadow:0 0 8px rgba(243,186,47,0.6);
+      position:relative;z-index:2;
+      transition:transform 0.2s,box-shadow 0.2s;
+    }
+    .node-ring{
+      position:absolute;inset:0;border-radius:50%;
+      border:1px solid rgba(243,186,47,0.35);
+      animation:nodeRing 2.5s ease-in-out infinite;
+    }
+    .tweet-node:hover .node-dot{
+      transform:scale(1.6);
+      box-shadow:0 0 16px rgba(243,186,47,0.9);
+    }
+    .tweet-node.gathering .node-dot{
+      transform:scale(2);
+      box-shadow:0 0 24px rgba(243,186,47,1);
+    }
+    @keyframes nodeRing{
+      0%{transform:scale(1);opacity:0.6}
+      50%{transform:scale(2.2);opacity:0}
+      100%{transform:scale(1);opacity:0.6}
+    }
+    /* 推文内容样式 */
+    .tw-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .tw-avatar{
+      width:36px;height:36px;border-radius:50%;
+      background:linear-gradient(135deg,#1a2338,#2B2F36);
+      border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;
+      font-size:14px;flex-shrink:0;
+    }
+    .tw-name{font-size:13px;font-weight:700;color:#fff}
+    .tw-handle{font-size:11px;color:var(--muted);font-family:monospace}
+    .tw-body{font-size:13px;color:#D1D5DB;line-height:1.85;margin-bottom:12px}
+    .tw-note{
+      font-size:11px;color:var(--yellow);
+      font-family:monospace;line-height:1.85;
+      padding:10px 12px;
+      background:rgba(243,186,47,0.06);
+      border-left:2px solid var(--yellow);
+      border-radius:0 4px 4px 0;
+    }
+    .tw-note.red{color:#F05070;background:rgba(240,80,112,0.05);border-left-color:#F05070}
+    .tw-note.blue{color:#4DAFFF;background:rgba(77,175,255,0.05);border-left-color:#4DAFFF}
+    .tw-footer{
+      display:flex;align-items:center;gap:6px;
+      margin-top:12px;font-size:10px;color:#374151;
+      font-family:monospace;
+    }
+    </style>
+
+    <script>
+    // 六条推文数据
+    const tweets = [
+      {
+        avatar:'📊',
+        name:'BSC Meme Trader',
+        handle:'@bsc_meme_real',
+        tag:'BSC生态',
+        body:'「同一个叙事能拆成好几种池子同时跑，导致资金和注意力严重分流。即使是审美在线、懂叙事的散户，长期下来也是负收益。」',
+        note:'// 永信城注解\n这不是你的问题。\n这是系统设计的结果。\n天降神针从不需要直接伤害你——\n它只需要让你永远追不到那个正确的池子。',
+        noteType:''
+      },
+      {
+        avatar:'✍️',
+        name:'创作者是我还是AI',
+        handle:'@killthatcreator001',
+        tag:'独立创作者',
+        body:'「做了五年内容，每天看数据、优化标题、迎合算法。平台给你流量，但你的每一个选择都在喂养它。你以为在创作，其实在打工。」',
+        note:'// 永信城注解\nL3工人不知道自己在工厂里。\n他们以为在做自己热爱的事。\n系统最聪明的地方——\n不是关住你，是让你自愿留下来。',
+        noteType:''
+      },
+      {
+        avatar:'💀',
+        name:'链上六年',
+        handle:'@anon_6years',
+        tag:'2021入圈',
+        body:'「写这个的时候刚止损了空单。最近半年亏了本金1.2m，连本带利亏了3m。\n\n6年前带着400万入圈，6年后，带着剩下的些许本金半退隐了。\n\n我也不知道未来在何方，但是肯定不在这个所谓的币圈。\n\n祝你也祝我，平安快乐，家庭圆满。」',
+        note:null,
+        noteType:'red'
+      },
+      {
+        avatar:'⛓️',
+        name:'DeFi老兵',
+        handle:'@defi_ghost',
+        tag:'链上四年',
+        body:'「在链上待了四年。见过无数个项目方——他们从不威胁你，只是把系统设计成让你自愿掏钱。最后你还会感谢他们。」',
+        note:'// 永信城注解\n陈维克多说：\n「市场可以让你破产，\n但市场拿不走你的判断力。」\n他教了赵凯斯这句话。\n然后他用这套系统，\n收割了所有相信这句话的人。',
+        noteType:''
+      },
+      {
+        avatar:'🏢',
+        name:'淘系牛马',
+        handle:'@Aligaduo_slay',
+        tag:'局外人视角',
+        body:'「我不炒币。我只是个普通上班族。但我在那个格子间里工作了三年，系统给我打分，给我排名，告诉我我的情绪产出不够高效。」',
+        note:'// 永信城注解\n情绪牛马工厂不只在区块链里。\nL3的格子间，\n你可能已经坐了很久了。\n只是还没有人告诉你\n那根连着天花板的管道，\n在抽取什么。',
+        noteType:''
+      },
+      {
+        avatar:'⚙️',
+        name:'陈维克多',
+        handle:'@0xvictor.C',
+        tag:'永信城档案',
+        body:'「我搭建了十七个项目。\n每一个都被资金盘当作工具。\n每一次，散户骂我。\n每一次，庄家走了。\n\n我是活动里唯一的builder。\n我也是唯一不赚钱的人。\n\n后来我想明白了——\n不是我不够聪明。\n是我一直在用错误的身份，\n参与一个根本不为我设计的游戏。」',
+        note:'// 这是他黑化前的最后一篇日志。\n// 后来他选择了设计系统，而不是相信系统。\n// 你会做同样的选择吗？',
+        noteType:'blue'
+      }
+    ];
+
+    let activeNode = null;
+
+    // 节点点击
+    document.querySelectorAll('.tweet-node').forEach(node => {
+      // 悬停：粒子向节点汇聚
+      node.addEventListener('mouseenter', function(){
+        this.classList.add('gathering');
+        const rect = this.getBoundingClientRect();
+        const heroRect = document.getElementById('hero').getBoundingClientRect();
+        // 通知粒子系统吸引点
+        window._attractX = rect.left - heroRect.left + rect.width/2;
+        window._attractY = rect.top - heroRect.top + rect.height/2;
+        window._attractStrong = true;
+      });
+
+      node.addEventListener('mouseleave', function(){
+        this.classList.remove('gathering');
+        window._attractStrong = false;
+        window._attractX = -999;
+        window._attractY = -999;
+      });
+
+      // 点击：弹出推文
+      node.addEventListener('click', function(e){
+        e.stopPropagation();
+        const id = parseInt(this.dataset.id);
+        const rect = this.getBoundingClientRect();
+        const heroRect = document.getElementById('hero').getBoundingClientRect();
+        showTweetPopup(id,
+          rect.left - heroRect.left + rect.width/2,
+          rect.top  - heroRect.top  + rect.height/2
+        );
+      });
+    });
+
+    const nodeColors = ['#F3BA2F','#F472B6','#F05070','#22C55E','#A855F7','#4DAFFF'];
+
+    function showTweetPopup(id, cx, cy){
+      const popup = document.getElementById('tweetPopup');
+      const content = document.getElementById('tweetContent');
+      const t = tweets[id];
+      const color = nodeColors[id] || '#F3BA2F';
+      popup.style.borderColor = color + '66';
+      popup.style.boxShadow = `0 16px 48px rgba(0,0,0,0.7), 0 0 20px ${color}33`;
+
+      let noteHtml = '';
+      if(t.note){
+        noteHtml = `<div class="tw-note ${t.noteType}" style="white-space:pre-line">${t.note}</div>`;
+      } else {
+        noteHtml = `<div class="tw-note red" style="font-size:11px;color:#9CA3AF;font-family:monospace;white-space:pre-line">// 他在永信城待了六年。\n// 这是他离开时写下的话。</div>`;
+      }
+
+      content.innerHTML = `
+        <div class="tw-header">
+          <div class="tw-avatar">${t.avatar}</div>
+          <div>
+            <div class="tw-name">${t.name}</div>
+            <div class="tw-handle">${t.handle} · ${t.tag}</div>
+          </div>
+        </div>
+        <div class="tw-body" style="white-space:pre-line">${t.body}</div>
+        ${noteHtml}
+        <div class="tw-footer">
+          <span>𝕏</span>
+          <span style="color:#1d4ed8">X (Twitter)</span>
+          <span>·</span>
+          <span>永信城见证档案</span>
+        </div>
+      `;
+
+      // 定位：在节点旁边，不超出边界
+      popup.style.display = 'block';
+      const pw = 300, ph = 320;
+      const heroW = document.getElementById('hero').offsetWidth;
+      const heroH = document.getElementById('hero').offsetHeight;
+      let left = cx + 20;
+      let top  = cy - ph/2;
+      if(left + pw > heroW - 20) left = cx - pw - 20;
+      if(top < 10) top = 10;
+      if(top + ph > heroH - 10) top = heroH - ph - 10;
+      popup.style.left = left + 'px';
+      popup.style.top  = top  + 'px';
+
+      // 入场动画
+      popup.style.opacity = '0';
+      popup.style.transform = 'scale(0.92) translateY(8px)';
+      popup.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+      requestAnimationFrame(() => {
+        popup.style.opacity = '1';
+        popup.style.transform = 'scale(1) translateY(0)';
+      });
+    }
+
+    function closeTweetPopup(){
+      const popup = document.getElementById('tweetPopup');
+      popup.style.opacity = '0';
+      popup.style.transform = 'scale(0.92)';
+      setTimeout(() => { popup.style.display = 'none'; }, 200);
+    }
+
+    // 点击Hero区空白处关闭弹窗
+    document.getElementById('hero').addEventListener('click', function(e){
+      if(!e.target.closest('.tweet-node') && !e.target.closest('#tweetPopup')){
+        closeTweetPopup();
+      }
+    });
+    </script>
+
+
     <div style="position:absolute;right:48px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;opacity:0.35;pointer-events:none;z-index:2" class="hero-data-stream">
       <div style="font-family:monospace;font-size:10px;color:var(--yellow);letter-spacing:0.1em">// EMOTION_HARVEST_LOG</div>
       <div id="dataStream" style="font-family:monospace;font-size:10px;color:var(--muted);line-height:2;white-space:nowrap"></div>
@@ -713,21 +1019,36 @@ img{max-width:100%}
           return;
         }
 
-        // 普通粒子：鼠标吸引效果
+        // 普通粒子：鼠标吸引 or 节点强吸引
         const dx = mouseX - p.x;
         const dy = mouseY - p.y;
         const dist = Math.sqrt(dx*dx + dy*dy);
         const attractRadius = 110;
+
+        // 节点强吸引
+        let ndx = 0, ndy = 0, ndist = 9999;
+        if(window._attractStrong && window._attractX > 0){
+          ndx = window._attractX - p.x;
+          ndy = window._attractY - p.y;
+          ndist = Math.sqrt(ndx*ndx + ndy*ndy);
+        }
 
         let extraDrift = 0;
         let extraSpeed = 0;
         let sizeMult = 1;
         let opacityMult = 1;
 
-        if(dist < attractRadius && mouseX > 0){
+        if(window._attractStrong && ndist < 160){
+          // 强吸引：粒子被节点拉向它
+          const force = (1 - ndist/160) * 1.4;
+          extraDrift = (ndx/ndist) * force * 1.2;
+          extraSpeed = (ndy/ndist) * force * -0.8;
+          sizeMult = 1 + force * 1.2;
+          opacityMult = 1 + force * 0.8;
+        } else if(dist < attractRadius && mouseX > 0){
           const force = (1 - dist / attractRadius) * 0.6;
           extraDrift = (dx / dist) * force * 0.8;
-          extraSpeed = (dy / dist) * force * -0.5; // 被吸引向上
+          extraSpeed = (dy / dist) * force * -0.5;
           sizeMult = 1 + force * 0.8;
           opacityMult = 1 + force * 0.6;
         }
@@ -843,9 +1164,7 @@ img{max-width:100%}
       }, 16);
     }
     setTimeout(() => {
-      const cc = document.getElementById('creatorCount');
       const tc = document.getElementById('taskCount');
-      if(cc) animateCount(cc, 2847, 1200);
       if(tc) animateCount(tc, 143, 800);
     }, 400);
   })();
@@ -1091,7 +1410,88 @@ img{max-width:100%}
       <h2 class="sec-title reveal">激励体系与版权归属</h2>
       <p class="sec-sub reveal">创作有回报，贡献有归属。所有结算由 ipfun 协议执行，透明上链。</p>
 
-      <div class="token-grid reveal">
+      <!-- 创作者画像 -->
+      <div style="margin-bottom:48px">
+        <div style="font-size:13px;color:var(--muted);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)" class="reveal">
+          你是哪种人？找到你在永信城的位置。
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" class="reveal">
+
+          <!-- Lore Hunter -->
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all 0.25s" onmouseover="this.style.borderColor='rgba(243,186,47,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+            <div style="aspect-ratio:1;overflow:hidden;background:#0a0d12">
+              <img src="https://i.ibb.co/352kZ2qj/image.png" alt="文字挖掘者" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="padding:18px 20px">
+              <div style="margin-bottom:10px">
+                <div style="font-size:10px;color:var(--gold-dim);font-family:monospace;letter-spacing:0.12em;margin-bottom:3px">LORE HUNTER</div>
+                <div style="font-size:15px;font-weight:700;color:#fff">文字挖掘者</div>
+              </div>
+              <p style="font-size:12px;color:#9CA3AF;line-height:1.85;margin-bottom:12px">不一定是专业编剧，但对「人在系统里的处境」有真实感受。赔过钱的、被算法收割过的、做过内容创作感受过平台把自己变成数据的——他们不需要懂Web3，但他们懂「这里有什么不对」。永信城需要他们写那些主创没时间写的角落。</p>
+              <div style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px">
+                <span style="color:var(--yellow)">✦</span> 擅长写剧本、同人小说、人物故事
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Artist -->
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all 0.25s" onmouseover="this.style.borderColor='rgba(243,186,47,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+            <div style="aspect-ratio:1;overflow:hidden;background:#0a0d12">
+              <img src="https://i.ibb.co/1GhNrzcX/image.png" alt="视觉筑梦师" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="padding:18px 20px">
+              <div style="margin-bottom:10px">
+                <div style="font-size:10px;color:var(--gold-dim);font-family:monospace;letter-spacing:0.12em;margin-bottom:3px">VISUAL ARTIST</div>
+                <div style="font-size:15px;font-weight:700;color:#fff">视觉筑梦师</div>
+              </div>
+              <p style="font-size:12px;color:#9CA3AF;line-height:1.85;margin-bottom:12px">会用即梦、Midjourney、Runway做图做视频。Creator Bible的提示词体系已经很完整，不需要从零建立审美，只需要有能力执行和迭代。永信城每一帧都需要有人把文字变成真实可见的画面——只有懂这个故事的人，才能生成对的那一张。</p>
+              <div style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px">
+                <span style="color:var(--yellow)">✦</span> 擅长跑图、渲染、制作15s视频
+              </div>
+            </div>
+          </div>
+
+          <!-- Meme Alchemist -->
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all 0.25s" onmouseover="this.style.borderColor='rgba(243,186,47,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+            <div style="aspect-ratio:1;overflow:hidden;background:#0a0d12">
+              <img src="https://i.ibb.co/mC4rw5GT/Meme.png" alt="Meme病毒师" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="padding:18px 20px">
+              <div style="margin-bottom:10px">
+                <div style="font-size:10px;color:var(--gold-dim);font-family:monospace;letter-spacing:0.12em;margin-bottom:3px">MEME ALCHEMIST</div>
+                <div style="font-size:15px;font-weight:700;color:#fff">Meme病毒师</div>
+              </div>
+              <p style="font-size:12px;color:#9CA3AF;line-height:1.85;margin-bottom:12px">真正在市场里待过。天降神针、FOMO、情绪收割对他们不是比喻，是亲身经历。这种人写出来的台词有真实重量，是AI无法模拟的。他们最需要做的事，是让这个故事对下一个刚进场的人说出真话。</p>
+              <div style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px">
+                <span style="color:var(--yellow)">✦</span> 擅长捕捉情绪，制作病毒式传播内容
+              </div>
+            </div>
+          </div>
+
+          <!-- World Architect -->
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all 0.25s" onmouseover="this.style.borderColor='rgba(243,186,47,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+            <div style="aspect-ratio:1;overflow:hidden;background:#0a0d12">
+              <img src="https://i.ibb.co/0jnr8G1j/image.png" alt="世界设计师" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="padding:18px 20px">
+              <div style="margin-bottom:10px">
+                <div style="font-size:10px;color:var(--gold-dim);font-family:monospace;letter-spacing:0.12em;margin-bottom:3px">WORLD ARCHITECT</div>
+                <div style="font-size:15px;font-weight:700;color:#fff">世界设计师</div>
+              </div>
+              <p style="font-size:12px;color:#9CA3AF;line-height:1.85;margin-bottom:12px">看见一个系统就想拆解它。游戏策划、产品经理、经济学爱好者，或者就是那种世界观设计停不下来的人。永信城地图上还有大片???区域没有名字、没有规则——不是等主创来填的，是等他们来定义的。</p>
+              <div style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px">
+                <span style="color:var(--yellow)">✦</span> 擅长设定、区域逻辑、经济规则设计
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid var(--border);margin:0 0 40px">
+
+
         <div class="token-col">
           <div class="token-col-label">// 质押门槛</div>
           <div class="token-name muted">STAKE</div>
