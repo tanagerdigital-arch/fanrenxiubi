@@ -1143,32 +1143,25 @@ const tweets=[
   const el = document.getElementById('typedWord');
   if(!el) return;
   const words = [
-    { text:'「永信城」',    color:'#E7D28F' },
-    { text:'「币安小说」',  color:'#E7D28F' },
-    { text:'「凡人修币录」',color:'#D3F93E' },
-    { text:'「永信城」',    color:'#E7D28F' },
+    { text:'「永信城」',     color:'#E7D28F' },
+    { text:'「币安小说」',   color:'#E7D28F' },
+    { text:'「凡人修币录」', color:'#D3F93E' },
   ];
   let wi = 0, ci = 0, deleting = false;
 
   const TYPE_SPEED   = 80;
   const DELETE_SPEED = 45;
-  const PAUSE_AFTER  = 1800;
-  const PAUSE_BEFORE = 400;
-
-  function setColor(color){
-    el.style.color = color;
-    el.style.borderColor = color;
-  }
+  const PAUSE_AFTER  = 2000;
+  const PAUSE_BEFORE = 350;
 
   function tick(){
     const { text, color } = words[wi];
-    setColor(color);
+    el.style.color = color;
     if(!deleting){
       ci++;
       el.textContent = text.slice(0, ci);
       if(ci === text.length){
-        const pause = wi === words.length - 1 ? PAUSE_AFTER * 2 : PAUSE_AFTER;
-        setTimeout(()=>{ deleting = true; tick(); }, pause);
+        setTimeout(()=>{ deleting = true; tick(); }, PAUSE_AFTER);
         return;
       }
       setTimeout(tick, TYPE_SPEED);
@@ -1185,11 +1178,9 @@ const tweets=[
     }
   }
 
-  // 光标闪烁
-  let cursorOn = true;
+  // 光标闪烁，颜色跟随当前词
   setInterval(()=>{
-    cursorOn = !cursorOn;
-    el.style.borderColor = cursorOn ? words[wi].color : 'transparent';
+    el.style.borderRightColor = el.style.borderRightColor === 'transparent' ? words[wi].color : 'transparent';
   }, 530);
 
   setTimeout(tick, 800);
