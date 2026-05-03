@@ -484,7 +484,7 @@ button{cursor:pointer;font-family:inherit}
     </div>
 
     <div class="hero-super reveal" style="font-size:clamp(36px,5.5vw,64px)">
-      欢迎来到<span>「永信城」</span>
+      欢迎来到<span id="typedWord" style="border-right:3px solid #E7D28F;padding-right:4px"></span>
     </div>
 
     <div style="font-size:clamp(13px,1.6vw,18px);color:#9CA3AF;font-weight:500;margin-bottom:20px;line-height:1.4" class="reveal">
@@ -1137,6 +1137,63 @@ const tweets=[
    body:'「我搭建了十七个项目。\n每一个都被资金盘当作工具。\n每一次，散户骂我。\n每一次，庄家走了。\n\n我是活动里唯一的builder。\n我也是唯一不赚钱的人。\n\n后来我想明白了——\n不是我不够聪明。\n是我一直在用错误的身份，\n参与一个根本不为我设计的游戏。」',
    note:'// 这是他黑化前的最后一篇日志。\n// 后来他选择了设计系统，而不是相信系统。\n// 你会做同样的选择吗？',noteType:'blue'}
 ];
+
+// ── 打字机轮播 ──
+(function(){
+  const el = document.getElementById('typedWord');
+  if(!el) return;
+  const words = [
+    { text:'「永信城」',    color:'#E7D28F' },
+    { text:'「币安小说」',  color:'#E7D28F' },
+    { text:'「凡人修币录」',color:'#D3F93E' },
+    { text:'「永信城」',    color:'#E7D28F' },
+  ];
+  let wi = 0, ci = 0, deleting = false;
+
+  const TYPE_SPEED   = 80;
+  const DELETE_SPEED = 45;
+  const PAUSE_AFTER  = 1800;
+  const PAUSE_BEFORE = 400;
+
+  function setColor(color){
+    el.style.color = color;
+    el.style.borderColor = color;
+  }
+
+  function tick(){
+    const { text, color } = words[wi];
+    setColor(color);
+    if(!deleting){
+      ci++;
+      el.textContent = text.slice(0, ci);
+      if(ci === text.length){
+        const pause = wi === words.length - 1 ? PAUSE_AFTER * 2 : PAUSE_AFTER;
+        setTimeout(()=>{ deleting = true; tick(); }, pause);
+        return;
+      }
+      setTimeout(tick, TYPE_SPEED);
+    } else {
+      ci--;
+      el.textContent = text.slice(0, ci);
+      if(ci === 0){
+        deleting = false;
+        wi = (wi + 1) % words.length;
+        setTimeout(tick, PAUSE_BEFORE);
+        return;
+      }
+      setTimeout(tick, DELETE_SPEED);
+    }
+  }
+
+  // 光标闪烁
+  let cursorOn = true;
+  setInterval(()=>{
+    cursorOn = !cursorOn;
+    el.style.borderColor = cursorOn ? words[wi].color : 'transparent';
+  }, 530);
+
+  setTimeout(tick, 800);
+})();
 
 // ── 粒子系统 ──
 (function(){
