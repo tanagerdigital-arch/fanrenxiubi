@@ -456,7 +456,7 @@ button{cursor:pointer;font-family:inherit}
     <div style="font-size:11px;color:var(--muted)">共创大厅</div>
   </div>
   <nav class="sidebar-nav">
-    <a href="#hero" class="sidebar-link active"><span class="si">🏙️</span>欢迎来到永信城</a>
+    <a href="#hero" class="sidebar-link active"><span class="si">🏙️</span>欢迎大厅</a>
     <a href="#identity" class="sidebar-link"><span class="si">🤝</span>如何参与</a>
     <a href="#reward" class="sidebar-link"><span class="si">💰</span>收益与版权</a>
     <a href="#tasks" class="sidebar-link"><span class="si">🎬</span>任务大厅<span class="sidebar-dot"></span></a>
@@ -1242,11 +1242,21 @@ const tweets=[
   const hero=document.getElementById('hero');
   hero.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouseX=e.clientX-r.left;mouseY=e.clientY-r.top});
   hero.addEventListener('mouseleave',()=>{mouseX=-999;mouseY=-999});
+  let welcomed = false;
+  const welcomeAudio = new Audio('https://raw.githubusercontent.com/tanagerdigital-arch/fanrenxiubi/main/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E6%B0%B8%E4%BF%A1%E5%9F%8E.mp3');
+  welcomeAudio.preload = 'auto';
+
   hero.addEventListener('click',e=>{
     const r=canvas.getBoundingClientRect();burst(e.clientX-r.left,e.clientY-r.top);
     const msgs=['EMOTION_BURST · MANUAL_RELEASE · DETECTED','ANOMALY · USER_RESISTANCE · L2_NODE','HARVEST_INTERRUPTED · PACKET_LOSS','WARNING · EMOTION_DUST_DISPERSED'];
     const el=document.getElementById('dataStream');
     if(el){const m=msgs[Math.floor(Math.random()*msgs.length)],ts=new Date().toTimeString().slice(0,8);const d=document.createElement('div');d.style.cssText='color:#F3BA2F;font-weight:700';d.textContent=`[${ts}] ⚠ ${m}`;el.prepend(d);setTimeout(()=>d.style.color='',2000)}
+
+    // 第一次点击播放欢迎语音
+    if(!welcomed){
+      welcomed = true;
+      welcomeAudio.play().catch(()=>{});
+    }
   });
   hero.style.cursor='crosshair';
   window.addEventListener('resize',init);init();draw();
